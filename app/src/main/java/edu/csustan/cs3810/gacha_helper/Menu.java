@@ -13,6 +13,10 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
     }
 
+    //TODO Make all the buttons' action into one action
+
+    //TODO Have button take user's to chosen activity
+
     public void goToFarmArtifact(View view){ //if user presses Farm Artifact Button
 
     }

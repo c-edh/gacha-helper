@@ -2,6 +2,8 @@ package edu.csustan.cs3810.gacha_helper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -39,6 +41,17 @@ public class Signup extends AppCompatActivity {
 
         System.out.println(email);
         System.out.println(password);
+
+        //TODO Fix crash issue
+
+        //TODO get user register into firebase
+
+        goToMenu();
+    }
+
+    private void goToMenu(){ //Takes the user to navigation menu
+        Intent intent = new Intent(this, Menu.class);
+        this.startActivity(intent);
     }
 
 }
