@@ -36,6 +36,7 @@
         android:layout_width="277dp"
         android:layout_height="90dp"
         android:layout_marginTop="20dp"
+        android:onClick="goToSignUp"
         android:text="Sign Up"
         android:textSize="35sp"
         app:backgroundTint="@color/goldenrod"
