@@ -7,35 +7,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:923137558143:android:6a9568ede97d3623fea14a",
-        "android_client_info": {
-          "package_name": "com.example.gacha_helper"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "923137558143-1s78fvs3g8itia4b4qp7ko6r5vmu9nep.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBFiIZokGpRrUTh9d-3rOCIItE-JbhB2_A"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "923137558143-1s78fvs3g8itia4b4qp7ko6r5vmu9nep.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:923137558143:android:ef2c4a5bee1b155bfea14a",
         "android_client_info": {
           "package_name": "edu.csustan.cs3810.gacha_helper"
