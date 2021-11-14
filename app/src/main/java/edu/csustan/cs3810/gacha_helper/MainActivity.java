@@ -3,6 +3,7 @@ package edu.csustan.cs3810.gacha_helper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,5 +25,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Menu.class);
         this.startActivity(intent);
     }
+
+    public void goToBuild(View v) {
+        Intent intent = new Intent(this, Build.class);
+        this.startActivity(intent);
+    }
+
+
 
 }
