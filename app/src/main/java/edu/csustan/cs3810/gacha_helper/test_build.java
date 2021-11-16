@@ -20,7 +20,7 @@ public class test_build extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
+    Double MainStat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,12 @@ public class test_build extends AppCompatActivity {
     }
 
     public void getFlowerBuild(View view){
+        getBuildInfo("Flower of Life");
+    }
+
+    private void getBuildInfo(String Artifact){
         TextView buildText = (TextView) findViewById(R.id.buildText);
-        DocumentReference docRef = db.collection("Artifacts").document("Flower of Life");
+        DocumentReference docRef = db.collection("Artifacts").document(Artifact);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -39,7 +43,9 @@ public class test_build extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        buildText.setText(document.getData().toString());
+                        MainStat = (Double) document.getDouble("Main Stat.HP %");
+
+                        buildText.setText(Artifact + "Main Stat is HP: " + MainStat.toString());
 
                     } else {
                         Log.d(TAG, "No such document");
