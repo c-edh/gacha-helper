@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,13 +20,17 @@ public class test_build extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_build);
+
     }
 
     public void getFlowerBuild(View view){
+        TextView buildText = (TextView) findViewById(R.id.buildText);
         DocumentReference docRef = db.collection("Artifacts").document("Flower of Life");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -34,6 +39,8 @@ public class test_build extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        buildText.setText(document.getData().toString());
+
                     } else {
                         Log.d(TAG, "No such document");
                     }
