@@ -8,11 +8,11 @@ android {
 
     defaultConfig {
         applicationId "edu.csustan.cs3810.gacha_helper"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,7 +39,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
     implementation 'com.airbnb.android:lottie:3.4.1'
 
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
