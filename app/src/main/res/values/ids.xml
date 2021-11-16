@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btnFlower" type="id" />
+    <item name="lblTitle" type="id" />
+    <item name="lblFP" type="id" />
+    <item name="lblPl" type="id" />
+    <item name="btnPlume" type="id" />
+    <item name="btnSands" type="id" />
+    <item name="lblSands" type="id" />
+    <item name="btnGoblet" type="id" />
+    <item name="lblGoblet" type="id" />
+    <item name="btnCirclet" type="id" />
+    <item name="lblCirclet" type="id" />
+</resources>

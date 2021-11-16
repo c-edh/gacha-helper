@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     android:layout_centerHorizontal="false"
     android:layout_centerVertical="false">
+    tools:context = ".Build">
 
     <TextView
         android:id="@+id/lblTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="80dp"
         android:background="#FF9800"
         android:gravity="center"
         android:text="Create A Build"
@@ -23,9 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lblTitle"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="102dp"
+        android:onClick="getFlower"
         android:text="Roll for Flower" />
 
     <TextView
@@ -52,7 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnFlower"
         android:layout_alignLeft="@id/btnFlower"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="119dp"
         android:text="Roll for Plume" />
 
     <Button
@@ -61,9 +66,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnPlume"
         android:layout_alignLeft="@id/btnFlower"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="125dp"
         android:text="Roll for Sands" />
 
     <TextView
@@ -79,9 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnSands"
         android:layout_alignLeft="@id/btnFlower"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="121dp"
         android:text="Roll for Goblet" />
 
     <TextView
@@ -97,9 +102,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnGoblet"
         android:layout_alignLeft="@id/btnFlower"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="119dp"
         android:text="Roll for Circlet" />
 
     <TextView

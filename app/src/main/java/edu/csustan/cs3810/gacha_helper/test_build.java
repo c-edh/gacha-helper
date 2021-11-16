@@ -2,13 +2,12 @@ package edu.csustan.cs3810.gacha_helper;
 
 import static android.content.ContentValues.TAG;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,19 +15,17 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Build extends AppCompatActivity {
+public class test_build extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_build);
+        setContentView(R.layout.activity_test_build);
+    }
 
-}
-
-    public void getFlower(View v) {
-
+    public void getFlowerBuild(View view){
         DocumentReference docRef = db.collection("Artifacts").document("Flower of Life");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -45,6 +42,5 @@ public class Build extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

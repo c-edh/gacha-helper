@@ -10,13 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GachaHelper">
         <activity
+            android:name=".test_build"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
             android:name=".Signup"
             android:exported="false" />
         <activity android:name=".login" />
-        <activity android:name=".Build"/>
+        <activity
+            android:name=".Build"
+            android:exported="false" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
