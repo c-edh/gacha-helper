@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
     package="edu.csustan.cs3810.gacha_helper">
 
     <application
@@ -10,18 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GachaHelper">
         <activity
-            android:name=".test_build"
-            android:exported="false" />
-        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
             android:name=".Signup"
             android:exported="false" />
         <activity android:name=".login" />
-        <activity
-            android:name=".Build"
-            android:exported="false" />
+        <activity android:name=".Build"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -2,8 +2,6 @@ package edu.csustan.cs3810.gacha_helper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -36,8 +34,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void goToCreateABuild(View view){ // if user presses Create a Build Button
-        Intent intent = new Intent(this, test_build.class);
-        this.startActivity(intent);
+
 
     }
 
