@@ -16,11 +16,14 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
+
 public class test_build extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     Double MainStat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,25 @@ public class test_build extends AppCompatActivity {
     public void getFlowerBuild(View view){
         getBuildInfo("Flower of Life");
     }
+
+    public void getCircletOfLogos(){
+        getBuildInfo("Circlet of Logos");
+    }
+
+    public void getGobletOfEonothem(){
+        getBuildInfo("Goblet of Eonothem");
+    }
+
+    public void getPlumeOfDeath(){
+        getBuildInfo("Plume of Death");
+    }
+
+    public void getSandsOfEon(){
+        getBuildInfo("Sands of Eon");
+    }
+
+
+
 
     private void getBuildInfo(String Artifact){
         TextView buildText = (TextView) findViewById(R.id.buildText);
