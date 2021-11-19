@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.Map;
 
@@ -22,7 +23,6 @@ public class test_build extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    Double MainStat;
 
 
     @Override
@@ -52,11 +52,24 @@ public class test_build extends AppCompatActivity {
         getBuildInfo("Sands of Eon");
     }
 
+    private void getStatsData(Map<String, Double> data){
+
+        //TODO Loop through the map, get all the keys and values of it.
+        //System.out.println(data);
+        TextView buildText = (TextView) findViewById(R.id.buildText);
+        String StatString = "";
+
+        for ( String key : data.keySet() ) {
+            System.out.println(key); //prints the stat
+            StatString += (key + ": " + data.get(key) + "\n");
+        }
+        buildText.setText(StatString);
+    }
 
 
 
     private void getBuildInfo(String Artifact){
-        TextView buildText = (TextView) findViewById(R.id.buildText);
+
         DocumentReference docRef = db.collection("Artifacts").document(Artifact);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -64,10 +77,16 @@ public class test_build extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        MainStat = (Double) document.getDouble("Main Stat.HP %");
+                      //  Log.d(TAG, "DocumentSnapshot data: " + document.get("Main Stat"));
 
-                        buildText.setText(Artifact + "Main Stat is HP: " + MainStat.toString());
+                        Map<String, Double> mainstatData = (Map<String, Double>) document.get("Main Stat"); //Gets all main Stat data from firebase
+                        getStatsData(mainstatData);
+
+                        if(Artifact!= "Flower of Life"){
+                            Map<String, Double> substatData = (Map<String, Double>) document.get("Sub Stat");
+                            getStatsData(substatData);
+                        }
+
 
                     } else {
                         Log.d(TAG, "No such document");
