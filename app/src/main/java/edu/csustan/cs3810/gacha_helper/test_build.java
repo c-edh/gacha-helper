@@ -97,4 +97,32 @@ public class test_build extends AppCompatActivity {
             }
         });
     }
+
+    public void getFeatherBuild(View view){
+        getBuildInfo("Plume of Death");
+    }
+
+    private void getBuildInfo(String Artifact){
+        TextView buildText = (TextView) findViewById(R.id.buildText);
+        DocumentReference docRef = db.collection("Artifacts").document(Artifact);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        MainStat = (Double) document.getDouble("Main Stat. ATK%");
+
+                        buildText.setText(Artifact + "Main Stat is ATK: " + MainStat.toString());
+
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }
 }
