@@ -13,6 +13,9 @@
             android:name=".test_build"
             android:exported="false" />
         <activity
+            android:name=".test_recommend"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
