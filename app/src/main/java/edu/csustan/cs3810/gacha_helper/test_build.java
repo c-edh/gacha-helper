@@ -36,19 +36,19 @@ public class test_build extends AppCompatActivity {
         getBuildInfo("Flower of Life");
     }
 
-    public void getCircletOfLogos(){
+    public void getCircletOfLogos(View view){
         getBuildInfo("Circlet of Logos");
     }
 
-    public void getGobletOfEonothem(){
+    public void getGobletOfEonothem(View view){
         getBuildInfo("Goblet of Eonothem");
     }
 
-    public void getPlumeOfDeath(){
+    public void getPlumeOfDeath(View view){
         getBuildInfo("Plume of Death");
     }
 
-    public void getSandsOfEon(){
+    public void getSandsOfEon(View view){
         getBuildInfo("Sands of Eon");
     }
 
