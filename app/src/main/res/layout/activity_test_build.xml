@@ -8,14 +8,16 @@
 
     <Button
         android:id="@+id/flowerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
         android:layout_marginStart="155dp"
         android:layout_marginTop="255dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="428dp"
         android:onClick="getFlowerBuild"
         android:text="Flower"
+        android:textSize="16sp"
+        app:backgroundTint="@color/goldenrod"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,4 +33,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flowerButton" />
+
+    <Button
+        android:id="@+id/featherButton"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="70dp"
+        android:text="Feather"
+        android:textSize="16sp"
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/flowerButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gobletButton" />
+
+    <Button
+        android:id="@+id/sandsButton"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="70dp"
+        android:text="Sands"
+        android:textSize="16sp"
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/flowerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.502" />
+
+    <Button
+        android:id="@+id/circletButton"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="70dp"
+        android:text="Circlet"
+        android:textSize="16sp"
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/flowerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sandsButton" />
+
+    <Button
+        android:id="@+id/gobletButton"
+        android:layout_width="110dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="70dp"
+        android:text="Goblet"
+        android:textSize="16sp"
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/flowerButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
