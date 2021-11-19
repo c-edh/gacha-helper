@@ -11,7 +11,7 @@
         android:layout_width="110dp"
         android:layout_height="60dp"
         android:layout_marginStart="155dp"
-        android:layout_marginTop="255dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="428dp"
         android:onClick="getFlowerBuild"
@@ -27,10 +27,8 @@
         android:id="@+id/buildText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="179dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flowerButton" />
 
@@ -58,8 +56,7 @@
         app:backgroundTint="@color/goldenrod"
         app:layout_constraintBottom_toTopOf="@+id/flowerButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.502" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/circletButton"
@@ -86,4 +83,13 @@
         app:layout_constraintBottom_toTopOf="@+id/flowerButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/substatsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="145dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flowerButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
