@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         this.startActivity(intent);
     }
     public void goToSignUp(View v){
-       // Intent intent = new Intent(this, Signup.class); <----uncomment when signup issue is fix
-        Intent intent = new Intent(this, Menu.class);
+        Intent intent = new Intent(this, Signup.class);
+        // Intent intent = new Intent(this, Menu.class);
         this.startActivity(intent);
     }
 

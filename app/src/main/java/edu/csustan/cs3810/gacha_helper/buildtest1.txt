@@ -23,4 +23,16 @@ public class Build extends AppCompatActivity {
     public void getFeather(View v) {
 
     }
+
+    public void getSands(View v) {
+
+    }
+
+    public void getCirclet(View v) {
+
+    }
+
+    public void getGoblet(VIew v) {
+
+    }
 }

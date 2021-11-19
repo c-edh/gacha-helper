@@ -20,14 +20,15 @@ public class Signup extends AppCompatActivity {
 
     EditText editTextEmail;
     EditText editTextPassword;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        mAuth = FirebaseAuth.getInstance();
+        editTextEmail = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        editTextPassword = (EditText) findViewById(R.id.editTextTextPassword);
     }
 
     public void signupButtonPressed(View view){ //when the user presses the sign up button
@@ -35,18 +36,48 @@ public class Signup extends AppCompatActivity {
     }
 
     private void signupUser(){
-        //user sign up procedures
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        System.out.println(email);
-        System.out.println(password);
+        if (email.isEmpty()){ //checks if email is empty
+            editTextEmail.setError("Required to type in Email");
+            return;
+        }
 
-        //TODO Fix crash issue
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){ //checks
+            editTextEmail.setError("Enter valid email address.");
+            return;
+        }
 
-        //TODO get user register into firebase
+        if(password.isEmpty()){
+            editTextPassword.setError("Password is required");
+        }
 
-        goToMenu();
+        if(password.length()<6){
+            editTextPassword.setError("Password is wrong");
+        }
+
+        //TODO Fix login error, it won't login user
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    //user is login in
+                    System.out.println("User is login");
+
+
+                    goToMenu(); //Takes the user to the menu
+                }
+                else{
+                    System.out.println("Failed login");
+
+                    //TODO Notify user the login failed
+
+                    // Toast.makeText(loginActivity.this, "Failed to login, wrong email or password", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     private void goToMenu(){ //Takes the user to navigation menu

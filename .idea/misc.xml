@@ -3,15 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_build.xml" value="0.32708333333333334" />
-        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_farm.xml" value="0.3234375" />
-        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_level.xml" value="0.3234375" />
-        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_recommend.xml" value="0.3234375" />
-        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_saved.xml" value="0.3234375" />
-        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/test_recommend.xml" value="0.3234375" />
         <entry key="..\:/Users/dabenesx/AndroidStudioProjects/codes/gacha-helper/app/src/main/res/layout/activity_build.xml" value="0.25" />
         <entry key="..\:/Users/dabenesx/AndroidStudioProjects/codes/gacha-helper/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/dabenesx/AndroidStudioProjects/codes/gacha-helper/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nehac/StudioProjects/gacha-helper/app/src/main/res/layout/activity_build.xml" value="0.1" />
+        <entry key="..\:/Users/nehac/StudioProjects/gacha-helper/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/nehac/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_build.xml" value="0.12" />
+        <entry key="..\:/Users/nehac/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_farm.xml" value="0.1" />
         <entry key="..\:/Users/sarah/AndroidStudioProjects/GachaHelper/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sarah/AndroidStudioProjects/GachaHelper/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sarah/AndroidStudioProjects/GachaHelper/app/src/main/res/layout/activity_test_build.xml" value="0.36666666666666664" />
