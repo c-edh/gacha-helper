@@ -67,18 +67,37 @@ public class test_build extends AppCompatActivity {
             System.out.println(key); //prints the stat
             StatString += (key + ": " + data.get(key) + "\n");
         }
-        //buildText.setText(StatString);
+       // buildText.setText(StatString);
         //statChance(data);
     }
 
-//    private void statChance(Map<String, Double> statChance){
-//        Map<Double,List<String>> chances;
+//   private void statChance(Map<String, Double> statChance){
+//        Map<Double,ArrayList<String>> chances = null;
+//        ArrayList<Double> chancesKeys = null;
 //
-//        for (String key : statChance.keySet()){
-//            //new map will have the
-//            chances[statChance.get(key)].append(statChance[key]);
+//        for (String value : statChance.keySet()){
+//            //Map Key is a Double, to store all the stats with the same chances in one key.
+//            //Value is equal key, to retrieve the names of the artifact stats
 //
+//            Double id = statChance.get(value);
+//
+//            if(chances.get(id) == null){
+//                chances.put(id,new ArrayList<String>());
+//            }
+//            chancesKeys.add(id);
+//            chances.get(id).add(value); //
 //        }
+//
+//        double randomizer = Math.random() * 100;
+//
+//        for(Double key : chances.keySet()){
+//            if(randomizer < key)
+//        }
+//
+//
+//
+//
+//
 //    }
 
 
