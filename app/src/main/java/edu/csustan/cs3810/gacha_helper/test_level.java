@@ -27,7 +27,7 @@ public class test_level extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_build);
+        setContentView(R.layout.activity_test_level);
     }
 
     public void levelFlower (View v) {

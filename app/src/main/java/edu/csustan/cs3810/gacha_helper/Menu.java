@@ -25,7 +25,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void goToLevelup(View view){ //if user presses Level Up Button
-        Intent intent = new Intent (this, test_recommend.class);
+        Intent intent = new Intent (this, test_level.class);
         this.startActivity(intent);
     }
 
