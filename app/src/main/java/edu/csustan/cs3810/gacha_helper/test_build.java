@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 public class test_build extends AppCompatActivity {
@@ -56,7 +57,7 @@ public class test_build extends AppCompatActivity {
         getBuildInfo("Sands of Eon");
     }
 
-    private void getStatsData(Map<String, Double> data){
+    private void getStatsData(Map<String, Long> data){
 
         //TODO Loop through the map, get all the keys and values of it.
         //System.out.println(data);
@@ -68,37 +69,53 @@ public class test_build extends AppCompatActivity {
             StatString += (key + ": " + data.get(key) + "\n");
         }
        // buildText.setText(StatString);
-        //statChance(data);
+       // statChance(data); <--------------------------Uncomment this line too
     }
 
-//   private void statChance(Map<String, Double> statChance){
-//        Map<Double,ArrayList<String>> chances = null;
-//        ArrayList<Double> chancesKeys = null;
+ private void statChance(Map<String, Long> statChance){
+//        Map<Long,ArrayList<String>> chances = null;   <--------- Uncomment this to the next line
+//        ArrayList<Long> chancesKeys = null;
 //
 //        for (String value : statChance.keySet()){
 //            //Map Key is a Double, to store all the stats with the same chances in one key.
 //            //Value is equal key, to retrieve the names of the artifact stats
 //
-//            Double id = statChance.get(value);
+//            Long id = statChance.get(value);
 //
-//            if(chances.get(id) == null){
+//            System.out.println(id);
+//
+//            chances.put(id, null);
+//
+//            if(chances.get(id) == null ){
 //                chances.put(id,new ArrayList<String>());
 //            }
-//            chancesKeys.add(id);
+//
 //            chances.get(id).add(value); //
 //        }
 //
 //        double randomizer = Math.random() * 100;
+//        Random random = new Random();
 //
+//        String statPicked = null;                     <--------- Uncomment above this
+
 //        for(Double key : chances.keySet()){
-//            if(randomizer < key)
+//
+//            ArrayList<String> stats = (ArrayList<String>) chances.get(key).clone();
+//            Double overallPercent = null;
+//
+//            for(String samePercentStats : stats){
+//                overallPercent+= key;
+//            }
+//
+//            if(randomizer < overallPercent){
+//                statPicked = stats.get(random.nextInt(stats.size()));
+//            }
 //        }
-//
-//
-//
-//
-//
-//    }
+
+        //System.out.println("the random stat that was picked is " +statPicked);
+
+
+   } 
 
 
 
@@ -113,13 +130,13 @@ public class test_build extends AppCompatActivity {
                     if (document.exists()) {
                       //  Log.d(TAG, "DocumentSnapshot data: " + document.get("Main Stat"));
 
-                        Map<String, Double> mainstatData = (Map<String, Double>) document.get("Main Stat"); //Gets all main Stat data from firebase
+                        Map<String, Long> mainstatData = (Map<String, Long>) document.get("Main Stat"); //Gets all main Stat data from firebase
                         getStatsData(mainstatData);
 
-                        if(Artifact!= "Flower of Life"){
-                            Map<String, Double> substatData = (Map<String, Double>) document.get("Sub Stat");
-                            getStatsData(substatData);
-                        }
+//                        if(Artifact!= "Flower of Life"){
+//                            Map<String, Long> substatData = (Map<String, Long>) document.get("Sub Stat");
+//                            getStatsData(substatData);
+//                        }
 
 
                     } else {
