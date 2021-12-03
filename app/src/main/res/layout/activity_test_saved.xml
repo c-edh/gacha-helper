@@ -6,33 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/savedartifacts"
         android:layout_width="410dp"
         android:layout_height="205dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="522dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/genshinbanner"/>
-
+        app:srcCompat="@drawable/genshinbanner" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="218dp"
+        android:layout_marginBottom="465dp"
         android:text="Saved Builds"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-16dp"/>
+        tools:layout_editor_absoluteX="-16dp" />
 
     <Spinner
         android:id="@+id/planets_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="266dp"
+        android:layout_marginBottom="420dp"
+        android:background="@color/goldenrod"
+        android:minHeight="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"/>
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
