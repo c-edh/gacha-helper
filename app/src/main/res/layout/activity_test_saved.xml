@@ -6,23 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/printSoon"
-        android:layout_width="190dp"
-        android:layout_height="131dp"
-        android:text="Coming Soon"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/savedartifacts"
+        android:layout_width="410dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="288dp"
-        android:layout_height="387dp"
-        app:layout_constraintBottom_toTopOf="@+id/printSoon"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pepepoggers" />
+        app:srcCompat="@drawable/genshinbanner"/>
+
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="218dp"
+        android:text="Saved Builds"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-16dp"/>
+
+    <Spinner
+        android:id="@+id/planets_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="266dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
