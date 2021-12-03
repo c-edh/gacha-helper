@@ -65,12 +65,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-<<<<<<
-    =======
         android:layout_width="176dp"
         android:layout_height="127dp"
         android:src="@drawable/goldenrod"
->>>>>>> Stashed changes
         app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

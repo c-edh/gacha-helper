@@ -3,6 +3,7 @@ package edu.csustan.cs3810.gacha_helper;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,12 +13,17 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.errorprone.annotations.Var;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class test_build extends AppCompatActivity {
 
@@ -61,8 +67,19 @@ public class test_build extends AppCompatActivity {
             System.out.println(key); //prints the stat
             StatString += (key + ": " + data.get(key) + "\n");
         }
-        buildText.setText(StatString);
+        //buildText.setText(StatString);
+        //statChance(data);
     }
+
+//    private void statChance(Map<String, Double> statChance){
+//        Map<Double,List<String>> chances;
+//
+//        for (String key : statChance.keySet()){
+//            //new map will have the
+//            chances[statChance.get(key)].append(statChance[key]);
+//
+//        }
+//    }
 
 
 
