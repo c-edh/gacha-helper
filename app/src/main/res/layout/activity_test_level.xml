@@ -7,27 +7,17 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/lblLevel"
-        android:layout_width="148dp"
-        android:layout_height="52dp"
-        android:text="Level Up"
-        android:textSize="34sp"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="-2dp" />
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/goldenrod"
+        android:text="LEVEL YOUR ARTIFACTS"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.171"
+        tools:layout_editor_absoluteX="0dp" />
 
-    <Button
-        android:id="@+id/levelUpFlower"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="levelFlower"
-        android:text="Level Up FLower"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="152dp" />
-
-    <TextView
-        android:id="@+id/Levelup"
-        android:layout_width="147dp"
-        android:layout_height="157dp"
-        tools:layout_editor_absoluteX="226dp"
-        tools:layout_editor_absoluteY="106dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
