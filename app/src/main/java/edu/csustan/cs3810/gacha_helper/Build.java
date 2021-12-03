@@ -25,7 +25,7 @@ public class Build extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build);
 
-}
+    }
 
     public void getFlower(View v) {
 
