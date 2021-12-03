@@ -65,10 +65,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-<<<<<<< Updated upstream
-        android:layout_width="144dp"
-        android:layout_height="94dp"
-=======
+<<<<<<
+    =======
         android:layout_width="176dp"
         android:layout_height="127dp"
         android:src="@drawable/goldenrod"
