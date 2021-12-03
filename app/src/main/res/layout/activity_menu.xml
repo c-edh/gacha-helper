@@ -85,4 +85,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewSavedBuildsButton" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="41dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/goldenrod" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="GachaHelper"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
