@@ -21,6 +21,7 @@ import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -68,54 +69,56 @@ public class test_build extends AppCompatActivity {
             System.out.println(key); //prints the stat
             StatString += (key + ": " + data.get(key) + "\n");
         }
-       // buildText.setText(StatString);
-       // statChance(data); <--------------------------Uncomment this line too
+       buildText.setText(StatString);
+       statChance(data); //<--------------------------Uncomment this line too
     }
 
  private void statChance(Map<String, Long> statChance){
-//        Map<Long,ArrayList<String>> chances = null;   <--------- Uncomment this to the next line
-//        ArrayList<Long> chancesKeys = null;
-//
-//        for (String value : statChance.keySet()){
-//            //Map Key is a Double, to store all the stats with the same chances in one key.
-//            //Value is equal key, to retrieve the names of the artifact stats
-//
-//            Long id = statChance.get(value);
-//
-//            System.out.println(id);
-//
-//            chances.put(id, null);
-//
-//            if(chances.get(id) == null ){
-//                chances.put(id,new ArrayList<String>());
-//            }
-//
-//            chances.get(id).add(value); //
-//        }
-//
-//        double randomizer = Math.random() * 100;
-//        Random random = new Random();
-//
-//        String statPicked = null;                     <--------- Uncomment above this
-
-//        for(Double key : chances.keySet()){
-//
-//            ArrayList<String> stats = (ArrayList<String>) chances.get(key).clone();
-//            Double overallPercent = null;
-//
-//            for(String samePercentStats : stats){
-//                overallPercent+= key;
-//            }
-//
-//            if(randomizer < overallPercent){
-//                statPicked = stats.get(random.nextInt(stats.size()));
-//            }
-//        }
-
-        //System.out.println("the random stat that was picked is " +statPicked);
 
 
-   } 
+        Map<Long,ArrayList<String>> chances = new HashMap<>(); //  <--------- Uncomment this to the next line
+        ArrayList<Long> chancesKeys = new ArrayList<Long>();
+
+        for (String value : statChance.keySet()){
+            //Map Key is a Double, to store all the stats with the same chances in one key.
+            //Value is equal key, to retrieve the names of the artifact stats
+
+            Long id = statChance.get(value);
+
+            System.out.println(id);
+
+
+
+            if(chances.get(id) == null){
+                chances.put(id,new ArrayList<String>());
+            }
+
+            chances.get(id).add(value); //
+        }
+
+        double randomizer = Math.random() * 100;
+        Random random = new Random();
+
+        String statPicked = null;
+
+        for(Long key : chances.keySet()){
+
+            ArrayList<String> stats = (ArrayList<String>) chances.get(key).clone();
+            Double overallPercent = 0.0;
+
+            for(String samePercentStats : stats){
+                overallPercent+= key;
+            }
+
+            if(randomizer < overallPercent){
+                statPicked = stats.get(random.nextInt(stats.size()));
+            }
+        }
+
+        System.out.println("the random stat that was picked is " +statPicked);
+
+
+   }
 
 
 
