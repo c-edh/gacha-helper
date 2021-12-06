@@ -12,12 +12,72 @@
         android:background="@color/goldenrod"
         android:text="LEVEL YOUR ARTIFACTS"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#546E7A"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171"
+        app:layout_constraintVertical_bias="0.07"
         tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/buttonFlower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getFlowerInfo"
+        android:text="Flower"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <Button
+        android:id="@+id/buttonFeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getPlumeInfo"
+        android:text="Feather"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <Button
+        android:id="@+id/buttonCirclet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getCircletInfo"
+        android:text="Circlet"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="162dp" />
+
+    <Button
+        android:id="@+id/buttonGoblet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getGobletInfo"
+        android:text="Goblet"
+        tools:layout_editor_absoluteX="295dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <Button
+        android:id="@+id/buttonSands"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getSandsInfo"
+        android:text="Sands"
+        tools:layout_editor_absoluteX="207dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <TextView
+        android:id="@+id/displaystats"
+        android:layout_width="135dp"
+        android:layout_height="74dp"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="274dp" />
+
+    <Button
+        android:id="@+id/buttonLevelUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level Up"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="513dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

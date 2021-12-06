@@ -16,9 +16,13 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.model.Values;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class test_level extends AppCompatActivity {
 
@@ -30,10 +34,55 @@ public class test_level extends AppCompatActivity {
         setContentView(R.layout.activity_test_level);
     }
 
-    public void levelFlower (View v) {
+    public void getFlowerInfo(View view){
+        getArtifactInfo("Flower of Life");}
 
-        DocumentReference levelFlowerUp = db.collection("Artifact Values").document("Values");
-        levelFlowerUp.update("HP Value: ", FieldValue.increment(203));
+        public void getCircletInfo(View view){
+        getArtifactInfo("Circlet of Logos"); }
+
+     public void getGobletInfo(View view){
+        getArtifactInfo("Goblet of Eonothem");
+     }
+
+     public void getPlumeInfo(View view){
+        getArtifactInfo("Plume of Death");
+     }
+
+     public void getSandsInfo(View view){
+        getArtifactInfo("Sands of Eon");
+     }
+
+    private void getStatsData(Map<String, Long> data){
+
+        //TODO Loop through the map, get all the keys and values of it.
+        //System.out.println(data);
+        TextView displaystats = (TextView) findViewById(R.id.displaystats);
+        String StatString = "";
+
+        for ( String key : data.keySet() ) {
+            System.out.println(key); //prints the stat
+            StatString += (key + ": " + data.get(key) + "\n");
+        }
+        displaystats.setText(StatString);
+        //statChance(data); //<--------------------------Uncomment this line too
     }
 
-}
+private void getArtifactInfo(String Artifact){
+    DocumentReference docRef = db.collection("Artifact Values").document(Artifact);
+    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        @Override
+        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+                    Map<String, Long> mainstatData = (Map<String, Long>) document.get("Main Stat");
+                    getStatsData(mainstatData);
+                } else {
+                    Log.d(TAG, "No Such Document");
+                }
+            } else {
+                Log.d(TAG, "Get Failed with ", task.getException());
+            }
+        }
+    });
+}}

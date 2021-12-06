@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_build.xml" value="0.31614583333333335" />
+        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_level.xml" value="0.31614583333333335" />
+        <entry key="..\:/Users/Domo/StudioProjects/gacha-helper/app/src/main/res/layout/activity_test_recommend.xml" value="0.31614583333333335" />
         <entry key="..\:/Users/dabenesx/AndroidStudioProjects/codes/gacha-helper/app/src/main/res/layout/activity_build.xml" value="0.25" />
         <entry key="..\:/Users/dabenesx/AndroidStudioProjects/codes/gacha-helper/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/dabenesx/AndroidStudioProjects/codes/gacha-helper/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />

@@ -141,7 +141,6 @@ public class test_build extends AppCompatActivity {
 //                            getStatsData(substatData);
 //                        }
 
-
                     } else {
                         Log.d(TAG, "No such document");
                     }
