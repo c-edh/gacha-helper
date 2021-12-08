@@ -11,7 +11,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -56,9 +60,13 @@ public class test_build extends AppCompatActivity {
 
     public void createUserBuildButtonPressed(View view){
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         System.out.println(userBuilds);
 
         //TODO Upload userBuilds to Firebase
+        ArrayList<UserBuild> data = new ArrayList<UserBuild>();
+        db.collection("Users Build").document(user.getUid()).set(data);
 
     }
 
@@ -84,14 +92,19 @@ public class test_build extends AppCompatActivity {
                             String substat = results;
                             System.out.println("This is the sub stat " + substat);
 
-                            UserBuild build = new UserBuild();
-                            build.ArtifactName = Artifact;
-                            build.ArtifactMainStat = mainstat;
-                            if (build.ArtifactName == "Flower of Life") {
-                                build.ArtifactSubStat = null;
-                            }else{
-                                build.ArtifactSubStat = substat;
+                            if(Artifact == "Flower of Life"){
+                                substat = null;
                             }
+
+                            UserBuild build = new UserBuild(Artifact, 1, mainstat, substat);
+//
+//                            build.ArtifactName = Artifact;
+//                            build.ArtifactMainStat = mainstat;
+//                            if (build.ArtifactName == "Flower of Life") {
+//                                build.ArtifactSubStat = null;
+//                            }else{
+//                                build.ArtifactSubStat = substat;
+//                            }
 
                             //Adds this to the user's build
                             userBuilds.add(build);
