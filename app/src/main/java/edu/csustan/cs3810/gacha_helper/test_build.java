@@ -39,23 +39,23 @@ public class test_build extends AppCompatActivity {
     }
 
     public void getFlowerBuild(View view){
-        getBuildInfo("Flower of Life");
+        createUserBuild("Flower of Life");
     }
 
     public void getCircletOfLogos(View view){
-        getBuildInfo("Circlet of Logos");
+        createUserBuild("Circlet of Logos");
     }
 
     public void getGobletOfEonothem(View view){
-        getBuildInfo("Goblet of Eonothem");
+        createUserBuild("Goblet of Eonothem");
     }
 
     public void getPlumeOfDeath(View view){
-        getBuildInfo("Plume of Death");
+        createUserBuild("Plume of Death");
     }
 
     public void getSandsOfEon(View view){
-        getBuildInfo("Sands of Eon");
+        createUserBuild("Sands of Eon");
     }
 
     private void getStatsData(Map<String, Long> data){
@@ -70,20 +70,52 @@ public class test_build extends AppCompatActivity {
             StatString += (key + ": " + data.get(key) + "\n");
         }
        buildText.setText(StatString);
-       statChance(data); //<--------------------------Uncomment this line too
+       //statChance(data); //<--------------------------Uncomment this line too
     }
 
- private void statChance(Map<String, Long> statChance){
+    private void createUserBuild(String Artifact){
+
+        getBuildInfo(Artifact, "Main Stat", new OnBuildInfoRecievedListener(){
+            @Override
+            public void onBuildInfoRecieved(String results) {
+                String mainstat = results;
+                System.out.println("This is main stat" + mainstat);
+
+                //Flower of Life doesnt have a substat, so it skips this.
+                if(Artifact!= "Flower of Life"){
+                    getBuildInfo(Artifact, "Sub Stat", new OnBuildInfoRecievedListener() {
+                        @Override
+                        public void onBuildInfoRecieved(String results) {
+                            String substat = results;
+                            System.out.println("This is the sub stat " + substat);
+                        }
+                    });
+                }
+
+            }
+        });
+
+    }
+
+    private String getStatChance(Map<String, Double> statChance){
 
 
-        Map<Long,ArrayList<String>> chances = new HashMap<>(); //  <--------- Uncomment this to the next line
-        ArrayList<Long> chancesKeys = new ArrayList<Long>();
+        Map<Double,ArrayList<String>> chances = new HashMap<>(); //  <--------- Uncomment this to the next line
+        ArrayList<Double> chancesKeys = new ArrayList<Double>();
 
         for (String value : statChance.keySet()){
             //Map Key is a Double, to store all the stats with the same chances in one key.
             //Value is equal key, to retrieve the names of the artifact stats
+            System.out.println(value);
+            double d = 0.0;
 
-            Long id = statChance.get(value);
+            if (statChance.get(value) instanceof Number){ //Some values are long (thanks firebase), so inorder to convert it to a double you have to do this
+                d = ((Number) statChance.get(value)).doubleValue(); //or else you get an error
+            }else{
+                System.out.println("this is wrong " + statChance.get(value));
+            }
+
+            double id = d;
 
             System.out.println(id);
 
@@ -101,7 +133,7 @@ public class test_build extends AppCompatActivity {
 
         String statPicked = null;
 
-        for(Long key : chances.keySet()){
+        for(Double key : chances.keySet()){
 
             ArrayList<String> stats = (ArrayList<String>) chances.get(key).clone();
             Double overallPercent = 0.0;
@@ -110,19 +142,23 @@ public class test_build extends AppCompatActivity {
                 overallPercent+= key;
             }
 
-            if(randomizer < overallPercent){
+            if(randomizer <= overallPercent){
                 statPicked = stats.get(random.nextInt(stats.size()));
+                break;
             }
         }
 
-        System.out.println("the random stat that was picked is " +statPicked);
-
+//        System.out.println("the random stat that was picked is " +statPicked);
+        return statPicked;
 
    }
 
+   interface OnBuildInfoRecievedListener{
+        void onBuildInfoRecieved(String results);
+   }
 
 
-    private void getBuildInfo(String Artifact){
+    public void getBuildInfo(String Artifact, String Stat, OnBuildInfoRecievedListener listener){
 
         DocumentReference docRef = db.collection("Artifacts").document(Artifact);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -133,17 +169,17 @@ public class test_build extends AppCompatActivity {
                     if (document.exists()) {
                       //  Log.d(TAG, "DocumentSnapshot data: " + document.get("Main Stat"));
 
-                        Map<String, Long> mainstatData = (Map<String, Long>) document.get("Main Stat"); //Gets all main Stat data from firebase
-                        getStatsData(mainstatData);
+                        Map<String, Double> statData = (Map<String, Double>) document.get(Stat); //Gets all main Stat data from firebase
 
-//                        if(Artifact!= "Flower of Life"){
-//                            Map<String, Long> substatData = (Map<String, Long>) document.get("Sub Stat");
-//                            getStatsData(substatData);
-//                        }
+                        listener.onBuildInfoRecieved(getStatChance(statData));
+
 
                     } else {
                         Log.d(TAG, "No such document");
+                        return;
                     }
+
+
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
                 }
