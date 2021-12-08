@@ -3,7 +3,6 @@ package edu.csustan.cs3810.gacha_helper;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,23 +12,20 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.errorprone.annotations.Var;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class test_build extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    ArrayList<UserBuild> userBuilds = new ArrayList<UserBuild>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,47 +54,59 @@ public class test_build extends AppCompatActivity {
         createUserBuild("Sands of Eon");
     }
 
-    private void getStatsData(Map<String, Long> data){
+    public void createUserBuildButtonPressed(View view){
 
-        //TODO Loop through the map, get all the keys and values of it.
-        //System.out.println(data);
-        TextView buildText = (TextView) findViewById(R.id.buildText);
-        String StatString = "";
+        System.out.println(userBuilds);
 
-        for ( String key : data.keySet() ) {
-            System.out.println(key); //prints the stat
-            StatString += (key + ": " + data.get(key) + "\n");
-        }
-       buildText.setText(StatString);
-       //statChance(data); //<--------------------------Uncomment this line too
+        //TODO Upload userBuilds to Firebase
+
     }
 
+    //Gets the Artifacts that the user's has selected and puts in in an Arraylist of usersBuild (this is going to be the Build of the user's)
     private void createUserBuild(String Artifact){
 
-        getBuildInfo(Artifact, "Main Stat", new OnBuildInfoRecievedListener(){
+        //Getting the Artifact's Main Stats
+        getArtifactInfo(Artifact, "Main Stat", new OnArtifactInfoRecievedListener(){
             @Override
-            public void onBuildInfoRecieved(String results) {
+            public void onArtifactInfoRecieved(String results) {
+
+                //Results from this are the Main Stats of the Artifact
                 String mainstat = results;
                 System.out.println("This is main stat" + mainstat);
-
                 //Flower of Life doesnt have a substat, so it skips this.
+
                 if(Artifact!= "Flower of Life"){
-                    getBuildInfo(Artifact, "Sub Stat", new OnBuildInfoRecievedListener() {
+
+                    //Getting the artifact's sub stats
+                    getArtifactInfo(Artifact, "Sub Stat", new OnArtifactInfoRecievedListener() {
                         @Override
-                        public void onBuildInfoRecieved(String results) {
+                        public void onArtifactInfoRecieved(String results) {
                             String substat = results;
                             System.out.println("This is the sub stat " + substat);
+
+                            UserBuild build = new UserBuild();
+                            build.ArtifactName = Artifact;
+                            build.ArtifactMainStat = mainstat;
+                            if (build.ArtifactName == "Flower of Life") {
+                                build.ArtifactSubStat = null;
+                            }else{
+                                build.ArtifactSubStat = substat;
+                            }
+
+                            //Adds this to the user's build
+                            userBuilds.add(build);
                         }
                     });
                 }
 
             }
         });
-
     }
 
-    private String getStatChance(Map<String, Double> statChance){
 
+
+    //Get stat chances of getting pick, and picks the stat from that percentage
+    private String getStatChance(Map<String, Double> statChance){
 
         Map<Double,ArrayList<String>> chances = new HashMap<>(); //  <--------- Uncomment this to the next line
         ArrayList<Double> chancesKeys = new ArrayList<Double>();
@@ -119,12 +127,9 @@ public class test_build extends AppCompatActivity {
 
             System.out.println(id);
 
-
-
             if(chances.get(id) == null){
                 chances.put(id,new ArrayList<String>());
             }
-
             chances.get(id).add(value); //
         }
 
@@ -133,6 +138,7 @@ public class test_build extends AppCompatActivity {
 
         String statPicked = null;
 
+        //Checks to see if the percent of the stat is smaller than the random number.
         for(Double key : chances.keySet()){
 
             ArrayList<String> stats = (ArrayList<String>) chances.get(key).clone();
@@ -144,21 +150,19 @@ public class test_build extends AppCompatActivity {
 
             if(randomizer <= overallPercent){
                 statPicked = stats.get(random.nextInt(stats.size()));
-                break;
+                return statPicked;
             }
         }
-
-//        System.out.println("the random stat that was picked is " +statPicked);
         return statPicked;
-
    }
 
-   interface OnBuildInfoRecievedListener{
-        void onBuildInfoRecieved(String results);
+   //Needed to return Data in getArtifactInfo, because it has to wait for the data from firebase before it can return it.
+   interface OnArtifactInfoRecievedListener {
+        void onArtifactInfoRecieved(String results);
    }
 
-
-    public void getBuildInfo(String Artifact, String Stat, OnBuildInfoRecievedListener listener){
+    //Get Artifact Information from Firebase, then passes it to StatChances
+    public void getArtifactInfo(String Artifact, String Stat, OnArtifactInfoRecievedListener listener){
 
         DocumentReference docRef = db.collection("Artifacts").document(Artifact);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -171,7 +175,7 @@ public class test_build extends AppCompatActivity {
 
                         Map<String, Double> statData = (Map<String, Double>) document.get(Stat); //Gets all main Stat data from firebase
 
-                        listener.onBuildInfoRecieved(getStatChance(statData));
+                        listener.onArtifactInfoRecieved(getStatChance(statData));
 
 
                     } else {
