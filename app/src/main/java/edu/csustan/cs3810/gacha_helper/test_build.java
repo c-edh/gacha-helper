@@ -114,7 +114,6 @@ public class test_build extends AppCompatActivity {
         for (String value : statChance.keySet()){
             //Map Key is a Double, to store all the stats with the same chances in one key.
             //Value is equal key, to retrieve the names of the artifact stats
-            System.out.println(value);
             double d = 0.0;
 
             if (statChance.get(value) instanceof Number){ //Some values are long (thanks firebase), so inorder to convert it to a double you have to do this
@@ -124,8 +123,6 @@ public class test_build extends AppCompatActivity {
             }
 
             double id = d;
-
-            System.out.println(id);
 
             if(chances.get(id) == null){
                 chances.put(id,new ArrayList<String>());
@@ -138,21 +135,29 @@ public class test_build extends AppCompatActivity {
 
         String statPicked = null;
 
+        System.out.println("It has to be less than");
+        System.out.println(randomizer);
         //Checks to see if the percent of the stat is smaller than the random number.
+
+        Double overallPercent = 0.0;
+
+        do {
         for(Double key : chances.keySet()){
 
             ArrayList<String> stats = (ArrayList<String>) chances.get(key).clone();
-            Double overallPercent = 0.0;
 
             for(String samePercentStats : stats){
                 overallPercent+= key;
             }
+            System.out.println(stats.toString() + " overall percentage is " + overallPercent.toString());
+
 
             if(randomizer <= overallPercent){
                 statPicked = stats.get(random.nextInt(stats.size()));
                 return statPicked;
             }
-        }
+        }} while(statPicked != null);
+
         return statPicked;
    }
 
