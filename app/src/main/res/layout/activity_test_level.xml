@@ -83,12 +83,12 @@
 
     <TextView
         android:id="@+id/displaystats"
-        android:layout_width="163dp"
-        android:layout_height="144dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="213dp"
+        android:layout_height="152dp"
         android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonLevelUp"
@@ -105,23 +105,10 @@
         android:id="@+id/buttonpullUserBuild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="pullUserBuild"
         android:text="Pull User Build"
         app:backgroundTint="@color/goldenrod"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonLevelUp"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pulledUserBuild"
-        app:layout_constraintVertical_bias="0.263" />
-
-    <TextView
-        android:id="@+id/pulledUserBuild"
-        android:layout_width="163dp"
-        android:layout_height="144dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginBottom="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:layout_editor_absoluteY="571dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
