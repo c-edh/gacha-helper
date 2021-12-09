@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -65,8 +66,9 @@ public class test_build extends AppCompatActivity {
         System.out.println(userBuilds);
 
         //TODO Upload userBuilds to Firebase
-        ArrayList<UserBuild> data = new ArrayList<UserBuild>();
-        db.collection("Users Build").document(user.getUid()).set(data);
+        Map<String, Object> dataToFirebase = new HashMap<>();
+        dataToFirebase.put("Build", userBuilds);
+        db.collection("Users Build").document(user.getUid()).set(dataToFirebase);
 
     }
 
@@ -96,7 +98,9 @@ public class test_build extends AppCompatActivity {
                                 substat = null;
                             }
 
-                            UserBuild build = new UserBuild(Artifact, 1, mainstat, substat);
+
+
+                            UserBuild build = new UserBuild(Artifact,1,mainstat,substat);
 //
 //                            build.ArtifactName = Artifact;
 //                            build.ArtifactMainStat = mainstat;

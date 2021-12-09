@@ -11,7 +11,11 @@ public class UserBuild {
 
     public UserBuild(){}
 
-    public UserBuild(String artifact, int level, String mainstat, String substat) {
+    public UserBuild(String artifactName, int level, String artifactMainStat, String artifactSubStat) {
+        ArtifactName = artifactName;
+        ArtifactLevel = level;
+        ArtifactMainStat = artifactMainStat;
+        ArtifactSubStat = artifactSubStat;
     }
 
     public String getArtifactName(){
