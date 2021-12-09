@@ -48,7 +48,7 @@ public class test_level extends AppCompatActivity {
          getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
              @Override
              public void onArtifactInfoRecieved(Object results) {
-                 System.out.println(results);
+                 System.out.println(results); //chnage to nested for looop to both display and increment
              }
          });
      }

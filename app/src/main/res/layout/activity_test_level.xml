@@ -87,8 +87,7 @@
         android:layout_height="152dp"
         android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/buttonLevelUp"
@@ -112,5 +111,12 @@
         tools:layout_editor_absoluteY="571dp"
         android:onClick="pullUserBuild"
         />
+
+    <TextView
+        android:id="@+id/onArtifactInfoReceived"
+        android:layout_width="165dp"
+        android:layout_height="156dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="379dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
