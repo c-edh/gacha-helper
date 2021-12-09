@@ -35,35 +35,37 @@ public class CreateBuild extends AppCompatActivity {
         setContentView(R.layout.activity_createbuild);
 
     }
-
+    //Flower Button
     public void getFlowerBuild(View view){
         createUserBuild("Flower of Life");
     }
-
+    //Circlet Button
     public void getCircletOfLogos(View view){
         createUserBuild("Circlet of Logos");
     }
-
+    //Goblet Button
     public void getGobletOfEonothem(View view){
         createUserBuild("Goblet of Eonothem");
     }
-
+    //Feather
     public void getPlumeOfDeath(View view){
         createUserBuild("Plume of Death");
     }
-
+    //Sands of Eon Button
     public void getSandsOfEon(View view){
         createUserBuild("Sands of Eon");
     }
 
+
+    //When user press Create Build Button (sends the build to Firebase)
     public void createUserBuildButtonPressed(View view){
         TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
 
+        //Gets current users (so we can stored it with this users data)
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         System.out.println(userBuilds);
 
-        //TODO Upload userBuilds to Firebase
         Map<String, Object> dataToFirebase = new HashMap<>();
         dataToFirebase.put("Build", userBuilds);
         db.collection("Users Build").document(user.getUid()).set(dataToFirebase);
@@ -100,17 +102,8 @@ public class CreateBuild extends AppCompatActivity {
                                 substat = null;
                             }
 
-
-
+                            //Custom Object
                             UserBuild build = new UserBuild(Artifact,1,mainstat,substat);
-//
-//                            build.ArtifactName = Artifact;
-//                            build.ArtifactMainStat = mainstat;
-//                            if (build.ArtifactName == "Flower of Life") {
-//                                build.ArtifactSubStat = null;
-//                            }else{
-//                                build.ArtifactSubStat = substat;
-//                            }
 
                             //Adds this to the user's build
                             userBuilds.add(build);
@@ -214,9 +207,9 @@ public class CreateBuild extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                      //  Log.d(TAG, "DocumentSnapshot data: " + document.get("Main Stat"));
 
-                        Map<String, Double> statData = (Map<String, Double>) document.get(Stat); //Gets all main Stat data from firebase
+                        //Gets all main Stat data from firebase
+                        Map<String, Double> statData = (Map<String, Double>) document.get(Stat);
 
                         listener.onArtifactInfoRecieved(getStatChance(statData));
 
