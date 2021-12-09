@@ -105,6 +105,7 @@
         android:id="@+id/buttonpullUserBuild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="pullUserBuild"
         android:text="Pull User Build"
         app:backgroundTint="@color/goldenrod"
         app:layout_constraintBottom_toBottomOf="parent"

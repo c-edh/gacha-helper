@@ -29,6 +29,7 @@ import java.util.Random;
 public class test_level extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ArrayList<UserBuild> userBuilds = new ArrayList<UserBuild>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
