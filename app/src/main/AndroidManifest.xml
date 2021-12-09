@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GachaHelper">
         <activity
-            android:name=".test_build"
+            android:name=".CreateBuild"
             android:exported="false" />
         <activity
             android:name=".test_recommend"

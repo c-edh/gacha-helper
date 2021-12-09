@@ -40,7 +40,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void goToCreateABuild(View view){ // if user presses Create a Build Button
-        Intent intent = new Intent(this, test_build.class);
+        Intent intent = new Intent(this, CreateBuild.class);
         this.startActivity(intent);
 
     }
