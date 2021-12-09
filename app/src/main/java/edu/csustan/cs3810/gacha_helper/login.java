@@ -1,5 +1,7 @@
 package edu.csustan.cs3810.gacha_helper;
 
+//Corey Edh
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
 
 public class login extends AppCompatActivity {
 

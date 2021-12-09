@@ -109,6 +109,8 @@
         app:backgroundTint="@color/goldenrod"
         app:layout_constraintEnd_toStartOf="@+id/buttonLevelUp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="571dp" />
+        tools:layout_editor_absoluteY="571dp"
+        android:onClick="pullUserBuild"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,8 @@
 package edu.csustan.cs3810.gacha_helper;
 
+
+//Corey Edh
+
 public class UserBuild {
 
     private String ArtifactName;
