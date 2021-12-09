@@ -1,3 +1,6 @@
+//written by: Dhominic Abenes
+//tested by: Dhominic Abenes, Corey Edh
+//debugged by: Dhominic Abenes, Corey Edh
 package edu.csustan.cs3810.gacha_helper;
 
 import static android.content.ContentValues.TAG;
