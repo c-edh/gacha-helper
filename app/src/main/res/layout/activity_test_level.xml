@@ -7,12 +7,13 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/goldenrod"
+        android:background="@color/mediumGray"
         android:text="LEVEL YOUR ARTIFACTS"
         android:textAlignment="center"
-        android:textColor="#546E7A"
+        android:textColor="@color/goldenrod"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,60 +25,80 @@
         android:id="@+id/buttonFlower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="25dp"
         android:onClick="getFlowerInfo"
         android:text="Flower"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCirclet"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonFeather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="25dp"
         android:onClick="getPlumeInfo"
         android:text="Feather"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFlower"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonCirclet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:onClick="getCircletInfo"
         android:text="Circlet"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/displaystats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonGoblet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="25dp"
         android:onClick="getGobletInfo"
         android:text="Goblet"
-        tools:layout_editor_absoluteX="295dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSands"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/buttonSands"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="25dp"
         android:onClick="getSandsInfo"
         android:text="Sands"
-        tools:layout_editor_absoluteX="207dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCirclet"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/displaystats"
-        android:layout_width="135dp"
-        android:layout_height="74dp"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="274dp" />
+        android:layout_width="213dp"
+        android:layout_height="152dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonLevelUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Level Up"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="513dp" />
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displaystats" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
