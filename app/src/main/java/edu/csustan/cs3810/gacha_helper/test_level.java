@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -34,59 +36,39 @@ public class test_level extends AppCompatActivity {
         setContentView(R.layout.activity_test_level);
     }
 
-    public void getFlowerInfo(View view){
-        getArtifactInfo("Flower of Life");}
+     public void pullUserBuild(View view) {
+         TextView pulledUserBuildTextView  = (TextView) findViewById(R.id.pulledUserBuild);
 
-        public void getCircletInfo(View view){
-        getArtifactInfo("Circlet of Logos"); }
+         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+}
 
-     public void getGobletInfo(View view){
-        getArtifactInfo("Goblet of Eonothem");
-     }
+   public void getUserArtifactBuild(String Artifact, String Stat, CreateBuild.OnArtifactInfoRecievedListener listener){
 
-     public void getPlumeInfo(View view){
-        getArtifactInfo("Plume of Death");
-     }
+       FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-     public void getSandsInfo(View view){
-        getArtifactInfo("Sands of Eon");
-     }
+        DocumentReference docRef = db.collection("Users Build").document(user.getUid());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        //  Log.d(TAG, "DocumentSnapshot data: " + document.get("Main Stat"));
 
-     public void pullUserBuild(View view){
+                        Map<String, ArrayList<UserBuild>> SomeTypeVar = (Map<String,ArrayList<UserBuild>>) document.get(Stat); //Gets all main Stat data from firebase
 
-     }
 
-    private void getStatsData(Map<String, Long> data){
+                    } else {
+                        Log.d(TAG, "No such document");
+                        return;
+                    }
 
-        //TODO Loop through the map, get all the keys and values of it.
-        //System.out.println(data);
-        TextView displaystats = (TextView) findViewById(R.id.displaystats);
-        String StatString = "";
 
-        for ( String key : data.keySet() ) {
-            System.out.println(key); //prints the stat
-            StatString += (key + ": " + data.get(key) + "\n");
-        }
-        displaystats.setText(StatString);
-        //statChance(data); //<--------------------------Uncomment this line too
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
     }
 
-private void getArtifactInfo(String Artifact){
-    DocumentReference docRef = db.collection("Artifact Values").document(Artifact);
-    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-        @Override
-        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-            if (task.isSuccessful()) {
-                DocumentSnapshot document = task.getResult();
-                if (document.exists()) {
-                    Map<String, Long> mainstatData = (Map<String, Long>) document.get("Main Stat");
-                    getStatsData(mainstatData);
-                } else {
-                    Log.d(TAG, "No Such Document");
-                }
-            } else {
-                Log.d(TAG, "Get Failed with ", task.getException());
-            }
-        }
-    });
-}}
+}
