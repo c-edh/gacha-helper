@@ -52,6 +52,10 @@ public class test_level extends AppCompatActivity {
         getArtifactInfo("Sands of Eon");
      }
 
+     public void pullUserBuild(View view){
+
+     }
+
     private void getStatsData(Map<String, Long> data){
 
         //TODO Loop through the map, get all the keys and values of it.
