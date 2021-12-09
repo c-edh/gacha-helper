@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,6 +57,7 @@ public class CreateBuild extends AppCompatActivity {
     }
 
     public void createUserBuildButtonPressed(View view){
+        TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -66,11 +68,15 @@ public class CreateBuild extends AppCompatActivity {
         dataToFirebase.put("Build", userBuilds);
         db.collection("Users Build").document(user.getUid()).set(dataToFirebase);
 
+        artifactsInUserBuildTextView.setText("The Build was stored");
+
+        userBuilds.clear();
+
     }
 
     //Gets the Artifacts that the user's has selected and puts in in an Arraylist of usersBuild (this is going to be the Build of the user's)
     private void createUserBuild(String Artifact){
-
+        TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
         //Getting the Artifact's Main Stats
         getArtifactInfo(Artifact, "Main Stat", new OnArtifactInfoRecievedListener(){
             @Override
@@ -108,6 +114,25 @@ public class CreateBuild extends AppCompatActivity {
 
                             //Adds this to the user's build
                             userBuilds.add(build);
+
+                            //Below is just to display it on the phone
+                            String userbuildsString = "";
+                            int ArtifactCounter = 0;
+
+                            for(UserBuild artifactbuild : userBuilds){
+
+                                ArtifactCounter +=1;
+
+                                if(build.getArtifactName() == "Flower of Life"){
+                                    userbuildsString += (ArtifactCounter + ")" + artifactbuild.getArtifactName().toString() +"- Main stat:" + artifactbuild.getArtifactMainStat()
+                                            .toString() + "; \n");
+                                } else{
+                                    userbuildsString += (ArtifactCounter + ")" + artifactbuild.getArtifactName().toString() +"- Main stat:" + artifactbuild.getArtifactMainStat()
+                                        .toString() +", Sub Stat:" + artifactbuild.getArtifactSubStat().toString() + "; \n");
+                                }
+                                artifactsInUserBuildTextView.setText(userbuildsString);
+
+                            }
                         }
                     });
                 }
