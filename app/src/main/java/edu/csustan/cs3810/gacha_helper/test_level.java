@@ -67,7 +67,7 @@ public class test_level extends AppCompatActivity {
                         levelBuild.put(counter,test);
                         System.out.println(test.getArtifactName());
 
-                        allartifacts += (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        allartifacts += (levelBuild.get(counter).getArtifactName().toString() + "\n"); //remove to string
                         counter +=1;
 
                         onArtifactInfoReceived.setText(allartifacts);
@@ -139,6 +139,40 @@ public class test_level extends AppCompatActivity {
                         onArtifactInfoReceived.setText(artifacts);
                     }
                 }
+            }
+        });
+    }
+
+    public void LevelUp(View view){
+        getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
+            @Override
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
+                TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoReceived.setText("");
+                String allartifacts = "";
+
+                for(String builds : results.keySet()){
+
+                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
+
+                    for(Object artifact : buildartifact){
+
+                        Map<String, ?> maptest = (Map<String, ?>) artifact;
+
+                        int counter = 0;
+
+                        UserBuild test = new UserBuild(maptest);
+                        levelBuild.put(counter,test);
+                        System.out.println(test.getArtifactLevel());
+
+                        allartifacts += (levelBuild.get(counter).getArtifactLevel() + "\n"); //remove to string and n
+                        counter +=1;
+
+                        onArtifactInfoReceived.setText(allartifacts);
+                    }
+
+                }
+
             }
         });
     }
