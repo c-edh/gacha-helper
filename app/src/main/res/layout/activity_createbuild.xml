@@ -13,13 +13,16 @@
         android:layout_marginStart="150dp"
         android:layout_marginTop="42dp"
         android:layout_marginEnd="151dp"
+        android:layout_marginBottom="27dp"
         android:onClick="getFlowerBuild"
         android:text="Flower"
         android:textSize="16sp"
         app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featherButton" />
+        app:layout_constraintTop_toBottomOf="@+id/featherButton"
+        app:layout_constraintVertical_bias="0.31" />
 
     <TextView
         android:id="@+id/buildText"
@@ -49,12 +52,15 @@
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="68dp"
+        android:layout_marginBottom="64dp"
         android:onClick="getSandsOfEon"
         android:text="Sands"
         android:textSize="16sp"
         app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/circletButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberOfArtifactsTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/numberOfArtifactsTextView"
+        app:layout_constraintVertical_bias="0.26" />
 
     <Button
         android:id="@+id/circletButton"
@@ -75,12 +81,15 @@
         android:layout_height="60dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="64dp"
         android:onClick="getGobletOfEonothem"
         android:text="Goblet"
         android:textSize="16sp"
         app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toTopOf="@+id/featherButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberOfArtifactsTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/numberOfArtifactsTextView"
+        app:layout_constraintVertical_bias="0.7" />
 
     <TextView
         android:id="@+id/substatsText"
@@ -96,20 +105,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="135dp"
-        android:layout_marginTop="14dp"
         android:layout_marginEnd="136dp"
+        android:layout_marginBottom="1dp"
         android:onClick="createUserBuildButtonPressed"
         android:text="Create Build"
         app:backgroundTint="#FF9800"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/artifactsInUserBuildTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/artifactsInUserBuildTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/artifactsInUserBuildTextView"
-        android:layout_width="353dp"
-        android:layout_height="154dp"
+        android:layout_width="355dp"
+        android:layout_height="141dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="37dp"
         android:layout_marginEnd="21dp"
