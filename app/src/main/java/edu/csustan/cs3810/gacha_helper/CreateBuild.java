@@ -90,47 +90,40 @@ public class CreateBuild extends AppCompatActivity {
                 System.out.println("This is main stat" + mainstat);
                 //Flower of Life doesnt have a substat, so it skips this.
 
-                if(Artifact!= "Flower of Life"){
+
 
                     //Getting the artifact's sub stats
-                    getArtifactInfo(Artifact, "Sub Stat", new OnArtifactInfoRecievedListener() {
-                        @Override
-                        public void onArtifactInfoRecieved(String results) {
-                            String substat = results;
-                            System.out.println("This is the sub stat " + substat);
-
-                            if(Artifact == "Flower of Life"){
-                                substat = null;
-                            }
-
-                            //Custom Object
-                            UserBuild build = new UserBuild(Artifact,1,mainstat,substat);
-
-                            //Adds this to the user's build
-                            userBuilds.add(build);
-
-                            //Below is just to display it on the phone
-                            String userbuildsString = "";
-                            int ArtifactCounter = 0;
-
-                            for(UserBuild artifactbuild : userBuilds){
-
-                                ArtifactCounter +=1;
-
-                                if(build.getArtifactName() == "Flower of Life"){
-                                    userbuildsString += (ArtifactCounter + ")" + artifactbuild.getArtifactName().toString() +"- Main stat:" + artifactbuild.getArtifactMainStat()
-                                            .toString() + "; \n");
-                                } else{
-                                    userbuildsString += (ArtifactCounter + ")" + artifactbuild.getArtifactName().toString() +"- Main stat:" + artifactbuild.getArtifactMainStat()
-                                        .toString() +", Sub Stat:" + artifactbuild.getArtifactSubStat().toString() + "; \n");
-                                }
-                                artifactsInUserBuildTextView.setText(userbuildsString);
-
-                            }
+                getArtifactInfo(Artifact, "Sub Stat", new OnArtifactInfoRecievedListener() {
+                    @Override
+                    public void onArtifactInfoRecieved(String results) {
+                        String substat = results;
+                        System.out.println("This is the sub stat " + substat);
+                        if(Artifact == "Flower of Life"){
+                            substat = "none";
                         }
-                    });
-                }
 
+                        //Custom Object
+                        UserBuild build = new UserBuild(Artifact,1,mainstat,substat);
+
+                        //Adds this to the user's build
+                        userBuilds.add(build);
+
+                        //Below is just to display it on the phone
+                        String userbuildsString = "";
+                        int ArtifactCounter = 0;
+
+                        for(UserBuild artifactbuild : userBuilds){
+
+                            ArtifactCounter +=1;
+                            
+                            userbuildsString += (ArtifactCounter + ")" + artifactbuild.getArtifactName().toString() +"- Main stat:" + artifactbuild.getArtifactMainStat()
+                                    .toString() +", Sub Stat:" + artifactbuild.getArtifactSubStat().toString() + "; \n");
+
+                            artifactsInUserBuildTextView.setText(userbuildsString);
+
+                        }
+                    }
+                });
             }
         });
     }
@@ -139,6 +132,10 @@ public class CreateBuild extends AppCompatActivity {
 
     //Get stat chances of getting pick, and picks the stat from that percentage
     private String getStatChance(Map<String, Double> statChance){
+
+        if(statChance == null){
+            return null;
+        }
 
         Map<Double,ArrayList<String>> chances = new HashMap<>(); //  <--------- Uncomment this to the next line
         ArrayList<Double> chancesKeys = new ArrayList<Double>();
@@ -217,7 +214,7 @@ public class CreateBuild extends AppCompatActivity {
 
                     } else {
                         Log.d(TAG, "No such document");
-                        return;
+                        listener.onArtifactInfoRecieved(null);
                     }
 
 

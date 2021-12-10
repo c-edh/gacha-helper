@@ -163,9 +163,9 @@ public class test_level extends AppCompatActivity {
 
                         UserBuild test = new UserBuild(maptest);
                         levelBuild.put(counter,test);
-                        System.out.println(test.setArtifactLevel());
+                        System.out.println(test.getArtifactName());
 
-                        artifacts += (levelBuild.get(counter).setArtifactLevel() + "\n"); //remove to string and n
+                        artifacts += (levelBuild.get(counter).getArtifactName().toString() + "\n"); //remove to string and n
                         counter +=1;
 
                         onArtifactInfoReceived.setText(artifacts);
