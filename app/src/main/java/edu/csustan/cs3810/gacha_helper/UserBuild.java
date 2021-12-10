@@ -50,4 +50,19 @@ public class UserBuild {
         return ArtifactSubStat;
     }
 
+    public void setArtifactName(String artifactName) {
+        ArtifactName = artifactName;
+    }
+
+    public void setArtifactLevel(int artifactLevel) {
+        ArtifactLevel = artifactLevel;
+    }
+
+    public void setArtifactMainStat(String artifactMainStat) {
+        ArtifactMainStat = artifactMainStat;
+    }
+
+    public void setArtifactSubStat(String artifactSubStat) {
+        ArtifactSubStat = artifactSubStat;
+    }
 }
