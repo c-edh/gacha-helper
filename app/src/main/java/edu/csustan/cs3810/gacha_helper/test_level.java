@@ -149,7 +149,7 @@ public class test_level extends AppCompatActivity {
             public void onArtifactInfoRecieved(Map<String, Object> results) {
                 TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
                 onArtifactInfoReceived.setText("");
-                String allartifacts = "";
+                String artifacts = ""; //variable needs to be changed from String type to Integer type
 
                 for(String builds : results.keySet()){
 
@@ -163,12 +163,12 @@ public class test_level extends AppCompatActivity {
 
                         UserBuild test = new UserBuild(maptest);
                         levelBuild.put(counter,test);
-                        System.out.println(test.getArtifactLevel());
+                        System.out.println(test.setArtifactLevel());
 
-                        allartifacts += (levelBuild.get(counter).getArtifactLevel() + "\n"); //remove to string and n
+                        artifacts += (levelBuild.get(counter).setArtifactLevel() + "\n"); //remove to string and n
                         counter +=1;
 
-                        onArtifactInfoReceived.setText(allartifacts);
+                        onArtifactInfoReceived.setText(artifacts);
                     }
 
                 }

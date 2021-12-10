@@ -65,4 +65,5 @@ public class UserBuild {
     public void setArtifactSubStat(String artifactSubStat) {
         ArtifactSubStat = artifactSubStat;
     }
+
 }
