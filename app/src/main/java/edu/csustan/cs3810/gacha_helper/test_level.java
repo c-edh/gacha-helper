@@ -66,7 +66,9 @@ public class test_level extends AppCompatActivity {
                         System.out.println(test.getArtifactName());
                         counter +=1;
 
-                        onArtifactInfoReceived.setText(test.getArtifactName());
+                        String allartifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
+
+                        onArtifactInfoReceived.setText(allartifacts);
                     }
 
                 }
