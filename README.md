@@ -1,7 +1,25 @@
 # gacha-helper
-developers: neha choudhry, corey edh, dhominic abenes, sarah dueltgen
-required software: android studio, github, firebase
 
+developers: 
+**Neha Choudhry**
+**Corey Edh**
+**Dhominic Abenes**
+**Sarah Dueltgen**
+
+required software: 
+*[x]Android Studio
+*[x]Github
+*[x]Firebase
+*[x]Java
+
+What is in the app:
+*Homescreen
+*Login and Sign Up
+*Create Build
+*Level Up
+
+
+##Walkthroughs
 <img src='gacha_homescreen.png' title='Homescreen' alt='Homescreen' />
 
 <img src='gacha_login.png' title='Login Page' alt="Login page" />
