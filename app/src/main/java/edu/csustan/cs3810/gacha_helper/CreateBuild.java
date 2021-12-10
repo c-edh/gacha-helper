@@ -148,7 +148,7 @@ public class CreateBuild extends AppCompatActivity {
 
 
     //Get stat chances of getting pick, and picks the stat from that percentage
-    private String getStatChance(Map<String, Double> statChance){
+    public String getStatChance(Map<String, Double> statChance){
 
         if(statChance == null){
             return null;
@@ -181,8 +181,8 @@ public class CreateBuild extends AppCompatActivity {
 
         String statPicked = null;
 
-        System.out.println("It has to be less than");
-        System.out.println(randomizer);
+       // System.out.println("It has to be less than");
+        //System.out.println(randomizer);
         //Checks to see if the percent of the stat is smaller than the random number.
 
         Double overallPercent = 0.0;
@@ -195,7 +195,7 @@ public class CreateBuild extends AppCompatActivity {
             for(String samePercentStats : stats){
                 overallPercent+= key;
             }
-            System.out.println(stats.toString() + " overall percentage is " + overallPercent.toString());
+          //  System.out.println(stats.toString() + " overall percentage is " + overallPercent.toString());
 
 
             if(randomizer <= overallPercent){
@@ -214,7 +214,7 @@ public class CreateBuild extends AppCompatActivity {
 
     //Get Artifact Information from Firebase, then passes it to StatChances
     public void getArtifactInfo(String Artifact, String Stat, OnArtifactInfoRecievedListener listener){
-        TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
+     // TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
         DocumentReference docRef = db.collection("Artifacts").document(Artifact);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -238,7 +238,7 @@ public class CreateBuild extends AppCompatActivity {
 
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
-                    artifactsInUserBuildTextView.setText("An error has occurred, check your connection");
+                    //artifactsInUserBuildTextView.setText("An error has occurred, check your connection");
                 }
             }
         });
