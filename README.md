@@ -7,3 +7,6 @@ required software: android studio, github, firebase
 <img src='gacha_login.png' title='Login Page' alt="Login page" />
 
 <img src='gacha_signup.png' title='Sign Up Page' alt='Sign Up page' />
+
+<img src='createbuild.gif' title='Create Build' alt='Showing the function of Create Build' />
+
