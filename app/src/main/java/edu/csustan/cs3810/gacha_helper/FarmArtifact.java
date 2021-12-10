@@ -52,7 +52,7 @@ public class FarmArtifact extends AppCompatActivity {
 
 
 
-
+    //Adds the artifacts stats to the list
     private void setStat() {
         //add stats to artifactStat list here
 

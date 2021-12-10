@@ -51,10 +51,12 @@ public class Signup extends AppCompatActivity {
 
         if(password.isEmpty()){
             editTextPassword.setError("Password is required");
+            return;
         }
 
         if(password.length()<6){
-            editTextPassword.setError("Password is wrong");
+            editTextPassword.setError("Password needs to be at least 6 characters");
+            return;
         }
 
         //TODO Fix login error, it won't login user
@@ -71,7 +73,7 @@ public class Signup extends AppCompatActivity {
                 }
                 else{
                     System.out.println("Failed login");
-
+                    editTextEmail.setError("Email already register");
                     //TODO Notify user the login failed
 
                     // Toast.makeText(loginActivity.this, "Failed to login, wrong email or password", Toast.LENGTH_LONG).show();

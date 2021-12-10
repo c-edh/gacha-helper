@@ -44,49 +44,57 @@ public class login extends AppCompatActivity {
     private void loginUser(){
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+        Boolean loginchecker = true;
 
+        //User didn't enter in a email address
         if (email.isEmpty()){ //checks if email is empty
-            editTextEmail.setError("Required to type in Email");
-            return;
+            editTextEmail.setError("Enter in a valid Email address");
+            loginchecker = false;
         }
 
+        //User didn't enter in a valid email address
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){ //checks
-            editTextEmail.setError("Enter valid email address.");
+            editTextEmail.setError("Enter in a valid email address.");
+            loginchecker = false;
+        }
+
+        //If password is less than 6 characters long (Firebase needs the password to be at least 6 chars long)
+        if(password.length()<6){
+            editTextPassword.setError("Password is incorrect");
+            loginchecker = false;
+        }
+
+        //User didn't type in password
+        if(password.isEmpty()){
+            editTextPassword.setError("Password is empty");
+            loginchecker = false;
+        }
+
+        //If on or more if statements = false, it gives the user information on what went wrong.
+        if(loginchecker == false){
             return;
         }
 
-        if(password.isEmpty()){
-            editTextPassword.setError("Password is required");
-        }
-
-        if(password.length()<6){
-            editTextPassword.setError("Password is wrong");
-        }
-
-        //TODO Fix login error, it won't login user
-
+        //Sends the information to firebase, to authentic the user
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                //If login is successful
                 if(task.isSuccessful()){
                     //user is login in
                     System.out.println("User is login");
-
-
                     goToMenu(); //Takes the user to the menu
                 }
-                else{
+                else{ //If Login failed
                     System.out.println("Failed login");
-
-                    //TODO Notify user the login failed
-
-                   // Toast.makeText(loginActivity.this, "Failed to login, wrong email or password", Toast.LENGTH_LONG).show();
+                    editTextEmail.setError("Incorrect Login");
                 }
             }
         });
 
     }
 
+    //Takes user to next screen
     private void goToMenu(){
         Intent intent = new Intent(this, Menu.class);
         this.startActivity(intent);

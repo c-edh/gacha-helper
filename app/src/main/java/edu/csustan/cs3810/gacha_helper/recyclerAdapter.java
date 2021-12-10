@@ -43,6 +43,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
 
     }
 
+    //How many items it needs to show in the RecyclerView
     @Override
     public int getItemCount() {
         return artifactStatList.size();

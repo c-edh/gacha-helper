@@ -3,6 +3,7 @@ package edu.csustan.cs3810.gacha_helper;
 
 import static android.content.ContentValues.TAG;
 
+import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,6 +62,7 @@ public class CreateBuild extends AppCompatActivity {
     //When user press Create Build Button (sends the build to Firebase)
     public void createUserBuildButtonPressed(View view){
         TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
+        TextView numberOfArtifactsTextView  = (TextView) findViewById(R.id.numberOfArtifactsTextView);
 
         //Gets current users (so we can stored it with this users data)
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -74,12 +76,22 @@ public class CreateBuild extends AppCompatActivity {
         artifactsInUserBuildTextView.setText("The Build was stored");
 
         userBuilds.clear();
+        numberOfArtifactsTextView.setText("0/5 Artifacts");
+        numberOfArtifactsTextView.setTextColor(Color.BLACK);
 
     }
 
     //Gets the Artifacts that the user's has selected and puts in in an Arraylist of usersBuild (this is going to be the Build of the user's)
     private void createUserBuild(String Artifact){
         TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
+        TextView numberOfArtifactsTextView  = (TextView) findViewById(R.id.numberOfArtifactsTextView);
+
+        //Builds are limited to 5 artifacts in a build, so if it has 5 it will not add another artifact
+        if (userBuilds.size() > 4){
+            numberOfArtifactsTextView.setTextColor(Color.RED);
+            return;
+        }
+
         //Getting the Artifact's Main Stats
         getArtifactInfo(Artifact, "Main Stat", new OnArtifactInfoRecievedListener(){
             @Override
@@ -88,16 +100,16 @@ public class CreateBuild extends AppCompatActivity {
                 //Results from this are the Main Stats of the Artifact
                 String mainstat = results;
                 System.out.println("This is main stat" + mainstat);
-                //Flower of Life doesnt have a substat, so it skips this.
 
 
-
-                    //Getting the artifact's sub stats
+                //Getting the artifact's sub stats
                 getArtifactInfo(Artifact, "Sub Stat", new OnArtifactInfoRecievedListener() {
                     @Override
                     public void onArtifactInfoRecieved(String results) {
                         String substat = results;
                         System.out.println("This is the sub stat " + substat);
+
+                        //Flower doesnt have a substat
                         if(Artifact == "Flower of Life"){
                             substat = "none";
                         }
@@ -112,14 +124,19 @@ public class CreateBuild extends AppCompatActivity {
                         String userbuildsString = "";
                         int ArtifactCounter = 0;
 
+                        //For all the artifacts in build, it loops through to display it on the phone
+                        //So the user knows that the artifact they select was selected
                         for(UserBuild artifactbuild : userBuilds){
 
                             ArtifactCounter +=1;
-                            
+
                             userbuildsString += (ArtifactCounter + ")" + artifactbuild.getArtifactName().toString() +"- Main stat:" + artifactbuild.getArtifactMainStat()
                                     .toString() +", Sub Stat:" + artifactbuild.getArtifactSubStat().toString() + "; \n");
 
                             artifactsInUserBuildTextView.setText(userbuildsString);
+                            numberOfArtifactsTextView.setText(ArtifactCounter + "/5 Artifacts");
+
+
 
                         }
                     }
@@ -197,7 +214,7 @@ public class CreateBuild extends AppCompatActivity {
 
     //Get Artifact Information from Firebase, then passes it to StatChances
     public void getArtifactInfo(String Artifact, String Stat, OnArtifactInfoRecievedListener listener){
-
+        TextView artifactsInUserBuildTextView  = (TextView) findViewById(R.id.artifactsInUserBuildTextView);
         DocumentReference docRef = db.collection("Artifacts").document(Artifact);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -209,6 +226,7 @@ public class CreateBuild extends AppCompatActivity {
                         //Gets all main Stat data from firebase
                         Map<String, Double> statData = (Map<String, Double>) document.get(Stat);
 
+                        //The listener
                         listener.onArtifactInfoRecieved(getStatChance(statData));
 
 
@@ -220,6 +238,7 @@ public class CreateBuild extends AppCompatActivity {
 
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
+                    artifactsInUserBuildTextView.setText("An error has occurred, check your connection");
                 }
             }
         });
