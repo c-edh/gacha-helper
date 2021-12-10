@@ -24,6 +24,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
 
 import java.lang.reflect.Array;
 import java.security.Key;
@@ -50,6 +51,7 @@ public class test_level extends AppCompatActivity {
             public void onArtifactInfoRecieved(Map<String, Object> results) {
                 TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
                 onArtifactInfoReceived.setText("");
+                String allartifacts = "";
 
                 for(String builds : results.keySet()){
 
@@ -64,15 +66,79 @@ public class test_level extends AppCompatActivity {
                         UserBuild test = new UserBuild(maptest);
                         levelBuild.put(counter,test);
                         System.out.println(test.getArtifactName());
-                        counter +=1;
 
-                        String allartifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        allartifacts += (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        counter +=1;
 
                         onArtifactInfoReceived.setText(allartifacts);
                     }
 
                 }
 
+            }
+        });
+    }
+
+    public void pullSands(View view){ //pulls in Sands Artifact
+        getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
+            @Override
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
+                TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoReceived.setText("");
+
+
+                for(String builds : results.keySet()){
+
+                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
+
+                    for(Object artifact : buildartifact){
+
+                        Map<String, ?> maptest = (Map<String, ?>) artifact;
+
+                        int counter = 0;
+
+                        UserBuild test = new UserBuild(maptest);
+                        levelBuild.put(counter,test);
+                        System.out.println(test.getArtifactName());
+
+                        String artifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        counter +=1;
+
+                        onArtifactInfoReceived.setText(artifacts);
+                    }
+
+                }
+
+            }
+        });
+    }
+
+    public void pullPlume(View view) {
+        getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
+            @Override
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
+                TextView onArtifactInfoReceived = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoReceived.setText("");
+
+                for(String builds : results.keySet()){
+
+                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
+
+                    for(Object artifact : buildartifact){
+                        Map<String, ?> maptest = (Map<String, ?>) artifact;
+
+                        int counter =0;
+
+                        UserBuild test = new UserBuild(maptest);
+                        levelBuild.put(counter,test);
+                        System.out.println(test.getArtifactName());
+
+                        String artifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        counter -=1;
+
+                        onArtifactInfoReceived.setText(artifacts);
+                    }
+                }
             }
         });
     }
