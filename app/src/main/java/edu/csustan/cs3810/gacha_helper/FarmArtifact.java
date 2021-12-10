@@ -23,18 +23,37 @@ public class FarmArtifact extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farm_artifact);
-
         recyclerView = findViewById(R.id.recyclerView);
-
         artifactStatList = new ArrayList<>();
-
         setStat();
-
         setAdapter();
 
     }
+    public void getFlowerStats(View view){
+        createUserBuild("Flower of Life");
+    }
+    //Circlet Button
+    public void getCircletOfLogosStats(View view){
 
-    private void setStat() {
+    }
+    //Goblet Button
+    public void getGobletOfEonothemStats(View view){
+
+    }
+    //Feather
+    public void getPlumeOfDeathStats(View view){
+
+    }
+    //Sands of Eon Button
+    public void getSandsOfEonStats(View view){
+
+    }
+
+
+
+
+
+    private void setStat(ArrayList<String> Stats) {
         //add stats to artifactStat list here
 
         //artifactStatList.add(stat) <- example
