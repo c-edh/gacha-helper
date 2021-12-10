@@ -83,9 +83,10 @@
 
     <TextView
         android:id="@+id/displaystats"
-        android:layout_width="213dp"
-        android:layout_height="152dp"
-        android:layout_marginBottom="200dp"
+        android:layout_width="179dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="132dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -94,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="52dp"
         android:text="Level Up"
         app:backgroundTint="@color/goldenrod"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,19 +105,23 @@
         android:id="@+id/buttonpullUserBuild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:onClick="pullUserBuild"
         android:text="Pull User Build"
         app:backgroundTint="@color/goldenrod"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonLevelUp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="571dp"
-        android:onClick="pullUserBuild"
-        />
+        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/onArtifactInfoReceived"
+        android:id="@+id/onArtifactInfoReceieved"
         android:layout_width="165dp"
         android:layout_height="156dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="379dp" />
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonpullUserBuild"
+        app:layout_constraintEnd_toStartOf="@+id/displaystats"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

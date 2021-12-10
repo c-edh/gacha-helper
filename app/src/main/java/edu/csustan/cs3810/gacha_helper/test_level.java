@@ -20,21 +20,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.model.Values;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class test_level extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +39,31 @@ public class test_level extends AppCompatActivity {
         setContentView(R.layout.activity_test_level);
     }
 
-
-
     public void pullUserBuild(View view){
-         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
-             @Override
-             public void onArtifactInfoRecieved(Object results) {
-                 System.out.println(results); //chnage to nested for looop to both display and increment
-             }
-         });
-     }
+        getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
+            @Override
+            public void onArtifactInfoRecieved(Object results) {
+                TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoReceived.setText("");
+
+                FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+                CollectionReference applicationsRef = rootRef.collection("Users Build");
+                DocumentReference applicationIdRef = applicationsRef.document("getUid");
+                applicationIdRef.get().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+
+                        if (document.exists()) {
+                            List<Map<String, Object>> users = (List<Map<String, Object>>)document.get("users");
+                        }
+
+                    }
+                });
+
+                System.out.println(results); //chnage to nested for looop to both display and increment
+            }
+        });
+    }
 
     interface OnArtifactInfoRecievedListener {
         void onArtifactInfoRecieved(Object results);
