@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.lang.reflect.Array;
 import java.security.Key;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +36,7 @@ public class test_level extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    Map<Integer, UserBuild> levelBuild = new HashMap();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,21 +59,18 @@ public class test_level extends AppCompatActivity {
 
                         Map<String, ?> maptest = (Map<String, ?>) artifact;
 
+                        int counter = 0;
+
                         UserBuild test = new UserBuild(maptest);
+                        levelBuild.put(counter,test);
                         System.out.println(test.getArtifactName());
+                        counter +=1;
 
-
-
-
-
+                        onArtifactInfoReceived.setText(test.getArtifactName());
                     }
-
 
                 }
 
-
-
-              ///  System.out.println(results); //chnage to nested for looop to both display and increment
             }
         });
     }
