@@ -20,7 +20,7 @@ public class Menu extends AppCompatActivity {
     //TODO Have button take user's to chosen activity
 
     public void goToFarmArtifact(View view){ //if user presses Farm Artifact Button
-        Intent intent = new Intent (this, test_recommend.class);
+        Intent intent = new Intent (this, FarmArtifact.class);
         this.startActivity(intent);
     }
 
