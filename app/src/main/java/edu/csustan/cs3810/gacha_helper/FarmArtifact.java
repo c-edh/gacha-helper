@@ -30,7 +30,7 @@ public class FarmArtifact extends AppCompatActivity {
 
     }
     public void getFlowerStats(View view){
-        createUserBuild("Flower of Life");
+       // createUserBuild("Flower of Life");
     }
     //Circlet Button
     public void getCircletOfLogosStats(View view){
@@ -53,7 +53,7 @@ public class FarmArtifact extends AppCompatActivity {
 
 
 
-    private void setStat(ArrayList<String> Stats) {
+    private void setStat() {
         //add stats to artifactStat list here
 
         //artifactStatList.add(stat) <- example

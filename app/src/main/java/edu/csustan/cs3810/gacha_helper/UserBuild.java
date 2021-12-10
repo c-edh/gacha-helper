@@ -3,6 +3,10 @@ package edu.csustan.cs3810.gacha_helper;
 
 //Corey Edh
 
+import android.renderscript.Sampler;
+
+import java.util.Map;
+
 public class UserBuild {
 
     private String ArtifactName;
@@ -20,6 +24,15 @@ public class UserBuild {
         ArtifactMainStat = artifactMainStat;
         ArtifactSubStat = artifactSubStat;
     }
+    public UserBuild(Map<String, ?> data) {
+        ArtifactName = data.get("artifactName").toString();
+        int level = 0;
+        level = ((Number) data.get("artifactLevel")).intValue();
+        ArtifactLevel = level;
+        ArtifactMainStat = data.get("artifactMainStat").toString();
+        ArtifactSubStat = data.get("artifactSubStat").toString();
+    }
+
 
     public String getArtifactName(){
         return ArtifactName;

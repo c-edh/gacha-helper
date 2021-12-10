@@ -25,6 +25,9 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.lang.reflect.Array;
+import java.security.Key;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -42,31 +45,39 @@ public class test_level extends AppCompatActivity {
     public void pullUserBuild(View view){
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
-            public void onArtifactInfoRecieved(Object results) {
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
                 TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
                 onArtifactInfoReceived.setText("");
 
-                FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-                CollectionReference applicationsRef = rootRef.collection("Users Build");
-                DocumentReference applicationIdRef = applicationsRef.document("getUid");
-                applicationIdRef.get().addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
+                for(String builds : results.keySet()){
 
-                        if (document.exists()) {
-                            List<Map<String, Object>> users = (List<Map<String, Object>>)document.get("users");
-                        }
+                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
+
+                    for(Object artifact : buildartifact){
+
+                        Map<String, ?> maptest = (Map<String, ?>) artifact;
+
+                        UserBuild test = new UserBuild(maptest);
+                        System.out.println(test.getArtifactName());
+
+
+
+
 
                     }
-                });
 
-                System.out.println(results); //chnage to nested for looop to both display and increment
+
+                }
+
+
+
+              ///  System.out.println(results); //chnage to nested for looop to both display and increment
             }
         });
     }
 
     interface OnArtifactInfoRecievedListener {
-        void onArtifactInfoRecieved(Object results);
+        void onArtifactInfoRecieved(Map<String, Object> results);
     }
 
 
