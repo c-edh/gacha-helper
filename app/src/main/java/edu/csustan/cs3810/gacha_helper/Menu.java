@@ -35,7 +35,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void goToViewSavedBuilds(View view){ // if user presses View Saved Button
-        Intent intent = new Intent (this, test_recommend.class);
+        Intent intent = new Intent (this, Saved.class);
         this.startActivity(intent);
     }
 
