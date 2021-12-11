@@ -8,9 +8,11 @@ package edu.csustan.cs3810.gacha_helper;
 
 import static android.content.ContentValues.TAG;
 
+import android.accounts.AccountManagerFuture;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.HttpAuthHandler;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,21 +25,29 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.auth.User;
+
+import org.w3c.dom.Document;
 
 import java.lang.reflect.Array;
 import java.security.Key;
+import java.sql.SQLXML;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.concurrent.Future;
 
-public class test_level extends AppCompatActivity {
+public class test_level<var> extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     Map<Integer, UserBuild> levelBuild = new HashMap();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +78,7 @@ public class test_level extends AppCompatActivity {
                         System.out.println(test.getArtifactName());
 
                         allartifacts += (levelBuild.get(counter).getArtifactName().toString() + "\n"); //remove to string
-                        counter +=1;
+                        counter -=1;
 
                         onArtifactInfoReceived.setText(allartifacts);
                     }
@@ -79,39 +89,45 @@ public class test_level extends AppCompatActivity {
         });
     }
 
-    public void pullSands(View view){ //pulls in Sands Artifact
+    public  void pullSands(View view) { //pulls in Sands Artifact
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
-                TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                TextView onArtifactInfoReceived = (TextView) findViewById(R.id.onArtifactInfoReceieved);
                 onArtifactInfoReceived.setText("");
-
 
                 for(String builds : results.keySet()){
 
                     ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
 
-                    for(Object artifact : buildartifact){
+                    CollectionReference buildRef = db.collection("Users Build");
+                    Query query = buildRef.whereEqualTo("build1", true);
 
+                    for(Object artifact : buildartifact){
                         Map<String, ?> maptest = (Map<String, ?>) artifact;
 
-                        int counter = 0;
+                        int counter =0;
 
                         UserBuild test = new UserBuild(maptest);
                         levelBuild.put(counter,test);
                         System.out.println(test.getArtifactName());
 
-                        String artifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
-                        counter +=1;
+                        String artifacts = (levelBuild.get(counter).getArtifactLevel() + "\n");
+                        counter =1;
 
                         onArtifactInfoReceived.setText(artifacts);
+                        System.out.println(artifacts);
                     }
-
                 }
-
             }
         });
+
     }
+
+
+
+
+
 
     public void pullPlume(View view) {
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
@@ -147,34 +163,18 @@ public class test_level extends AppCompatActivity {
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
-                TextView onArtifactInfoReceived  = (TextView) findViewById(R.id.onArtifactInfoReceieved);
-                onArtifactInfoReceived.setText("");
-                String artifacts = ""; //variable needs to be changed from String type to Integer type
+                TextView onArtifactInfoRecieved = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoRecieved.setText("");
 
-                for(String builds : results.keySet()){
-
-                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
-
-                    for(Object artifact : buildartifact){
-
-                        Map<String, ?> maptest = (Map<String, ?>) artifact;
-
-                        int counter = 0;
-
-                        UserBuild test = new UserBuild(maptest);
-                        levelBuild.put(counter,test);
-                        System.out.println(test.getArtifactName());
-
-                        artifacts += (levelBuild.get(counter).getArtifactName().toString() + "\n"); //remove to string and n
-                        counter +=1;
-
-                        onArtifactInfoReceived.setText(artifacts);
-                    }
-
+                for(String builds : results.keySet()) {
+                    Map<String,Object> data = new HashMap<>();
+                    data.put("artifactLevel", FieldValue.increment(1));
                 }
-
             }
         });
+
+
+
     }
 
     interface OnArtifactInfoRecievedListener {
@@ -184,7 +184,7 @@ public class test_level extends AppCompatActivity {
 
 
 
-private void getUserArtifactBuild(OnArtifactInfoRecievedListener listener){
+public void getUserArtifactBuild(OnArtifactInfoRecievedListener listener){
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DocumentReference docRef = db.collection("Users Build").document(user.getUid());
