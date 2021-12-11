@@ -2,6 +2,11 @@
 <!--Sarah Dueltgen
  Create Build formatting, button background goldenrod,
  foreground text white, other text medium gray-->
+
+<!-- Corey Edh
+Divider and adding function to buttons,
+and textview above the create button and below the divider
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

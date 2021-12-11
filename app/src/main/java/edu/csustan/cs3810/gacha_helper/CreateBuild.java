@@ -1,5 +1,9 @@
 package edu.csustan.cs3810.gacha_helper;
-//Corey Edh
+
+// written by:Corey Edh
+// tested by: Corey Edh
+// debugged by: Corey Edh
+
 
 import static android.content.ContentValues.TAG;
 
@@ -30,6 +34,8 @@ public class CreateBuild extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     ArrayList<UserBuild> userBuilds = new ArrayList<UserBuild>();
+
+    test_level Level = new test_level();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,17 +73,29 @@ public class CreateBuild extends AppCompatActivity {
         //Gets current users (so we can stored it with this users data)
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        //Uses this to count how many other builds there are so it wont overwrite them. and create new ones.
+        Level.getUserArtifactBuild(new test_level.OnArtifactInfoRecievedListener() {
+            int count = 1;
+            @Override
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
+                for(String i : results.keySet()){
+                    count +=1;
+                }
+
+
         System.out.println(userBuilds);
 
         Map<String, Object> dataToFirebase = new HashMap<>();
-        dataToFirebase.put("Build", userBuilds);
-        db.collection("Users Build").document(user.getUid()).set(dataToFirebase);
+        dataToFirebase.put("Build"+count, userBuilds);
+        db.collection("Users Build").document(user.getUid()).update(dataToFirebase);
 
         artifactsInUserBuildTextView.setText("The Build was stored");
 
         userBuilds.clear();
         numberOfArtifactsTextView.setText("0/5 Artifacts");
         numberOfArtifactsTextView.setTextColor(Color.BLACK);
+            }
+        });
 
     }
 
@@ -100,6 +118,7 @@ public class CreateBuild extends AppCompatActivity {
                 //Results from this are the Main Stats of the Artifact
                 String mainstat = results;
                 System.out.println("This is main stat" + mainstat);
+
 
 
                 //Getting the artifact's sub stats

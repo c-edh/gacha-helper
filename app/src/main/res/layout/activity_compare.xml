@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    // neha
 
     <TextView
         android:id="@+id/YourArtifactTitle"
@@ -14,7 +13,6 @@
         android:text="Your Artifact Subs"
         app:layout_constraintStart_toStartOf="@+id/YourArtifactStats"
         app:layout_constraintTop_toBottomOf="@+id/TitleBar" />
-
     <View
         android:id="@+id/divider3"
         android:layout_width="409dp"

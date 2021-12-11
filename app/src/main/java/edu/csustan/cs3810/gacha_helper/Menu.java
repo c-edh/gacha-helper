@@ -1,11 +1,17 @@
 package edu.csustan.cs3810.gacha_helper;
-
+//Written By Corey Edh
+//Tested by Group
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+
+// written by:
+// tested by: neha
+// debugged by:
+// etc.
 
 public class Menu extends AppCompatActivity {
 
