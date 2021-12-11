@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Sarah Dueltgen
+ Create Build formatting, button background goldenrod,
+ foreground text white, other text medium gray-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -103,27 +106,23 @@
     <Button
         android:id="@+id/createUserBuildButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="135dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="1dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
         android:onClick="createUserBuildButtonPressed"
         android:text="Create Build"
-        app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/goldenrod"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/artifactsInUserBuildTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/artifactsInUserBuildTextView" />
 
     <TextView
         android:id="@+id/artifactsInUserBuildTextView"
         android:layout_width="355dp"
         android:layout_height="141dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="28dp"
+        android:textColor="@color/mediumGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flowerButton" />
@@ -138,6 +137,7 @@
         android:text="0/5 Artifacts"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/mediumGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
