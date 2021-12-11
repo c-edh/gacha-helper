@@ -20,6 +20,7 @@ What is in the app:
 * Farm Artifact
 * View Saved Artifact
 * Recommended Builds
+* Compare Builds
 
 ## How to download App and use it.
 * First copy the git repo link
@@ -40,6 +41,7 @@ What is in the app:
 * LevelUp: This feature should be able to pull a saved build from Firebase, and increase the level count by however many times the User clicks the level up button. 
 * Saved Artifacts: This pulls saved builds and allows the user to view them by artifact type, including: plume, feather, sands of eon, goblet, and circlet.
 * Recommended Builds: This feature serves as a guide for what artifacts the user should be looking for.
+* Compare Builds: Allows the user to compare their individual artifacts to the ideal in each substat category.
 
 ## How the Database Looks
 ### User Build in database
@@ -68,6 +70,7 @@ to use it. Press on the artifact you want to farm, then stats will show up to th
 *Level Up: This will allow the User to pull a Saved Build from Firebase and increase an Artifact's level based on however many times the User chooses to level up. 
 * Saved Artifact: By clicking on the spinner, the user can select which category of saved artifacts they'd like to view.
 * Recommended: this feature server as a text guide to building characters, a handy source which allows the user to know which artifacts they should be looking for. To use it, the user only needs to scroll through the text.
+* Compare Build: this feature allows the user to compare their saved artifact with the most ideal version of each substat by pushing the "compare" button.
 
 ## Walkthroughs
 <img src='gacha_homescreen.png' title='Homescreen' alt='Homescreen' />
