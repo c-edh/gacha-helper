@@ -7,17 +7,17 @@ developers:
 * **Sarah Dueltgen**
 
 required software: 
-* [x]Android Studio
-* [x]Github
-* [x]Firebase
-* [x]Java
+* [x] Android Studio
+* [x] Github
+* [x] Firebase
+* [x] Java
 
 What is in the app:
 * Homescreen
 * Login and Sign Up
 * Create Build
 * Level Up
-
+* Farm Artifact
 
 ## Walkthroughs
 <img src='gacha_homescreen.png' title='Homescreen' alt='Homescreen' />

@@ -104,7 +104,7 @@ public class FarmArtifact extends AppCompatActivity {
        // System.out.println(stat);
         if(stat.equals(FarmStat)){
             resin.setText("Resin Needed: \n" + count);
-            count = 0;
+            count = 1;
         }else{
             count+=1;
             Farm();
