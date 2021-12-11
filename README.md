@@ -1,5 +1,9 @@
 # gacha-helper
 
+**GitHub Repo:**
+* [Click Here](https://github.com/c-edh/gacha-helper)
+* or copy this link: https://github.com/c-edh/gacha-helper 
+
 developers: 
 * **Neha Choudhry**
 * **Corey Edh**
