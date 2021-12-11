@@ -30,7 +30,8 @@ What is in the app:
 * **Congrats!!** now you have a running Gacha-Helper App!
 
 ## Classes explain
-* Login: Verify the user, uses firebase to authentic
+
+* ** Login** : Verify the user, uses firebase to authentic
 * Sign Up: Gets user's information to register and make an account through firebase
 * CreateBuild: This pulls data about artifacts and their stat chances, it uses this data to create the user a build
 * FarmArtifact: This pulls data about each artifact and their stats, and runs calculations on how many resin (how many tries it has to loop through) to get the user's desire result
