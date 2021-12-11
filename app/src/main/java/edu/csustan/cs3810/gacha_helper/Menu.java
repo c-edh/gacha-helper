@@ -1,5 +1,6 @@
 package edu.csustan.cs3810.gacha_helper;
-
+//Written By Corey Edh
+//Tested by Group
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
