@@ -10,11 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-// written by:
-// tested by:
-// debugged by:
-// etc.
-
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewHolder> {
 
     private ArrayList<String> artifactStatList;

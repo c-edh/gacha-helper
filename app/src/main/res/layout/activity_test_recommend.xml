@@ -6,12 +6,7 @@
     android:background="@color/goldenrod"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    // written by: neha
-    // tested by: neha
-    // debugged by: neha
-    // etc.
-
+// neha
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"

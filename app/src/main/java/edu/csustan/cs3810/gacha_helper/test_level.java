@@ -33,6 +33,7 @@ import com.google.firebase.firestore.auth.User;
 import org.w3c.dom.Document;
 
 import java.lang.reflect.Array;
+import java.net.DatagramPacket;
 import java.security.Key;
 import java.sql.SQLXML;
 import java.util.ArrayList;
@@ -89,7 +90,9 @@ public class test_level<var> extends AppCompatActivity {
         });
     }
 
-    public  void pullSands(View view) { //pulls in Sands Artifact
+    public  void pullSands(View view) {
+
+
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
@@ -99,9 +102,6 @@ public class test_level<var> extends AppCompatActivity {
                 for(String builds : results.keySet()){
 
                     ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
-
-                    CollectionReference buildRef = db.collection("Users Build");
-                    Query query = buildRef.whereEqualTo("build1", true);
 
                     for(Object artifact : buildartifact){
                         Map<String, ?> maptest = (Map<String, ?>) artifact;
@@ -113,9 +113,11 @@ public class test_level<var> extends AppCompatActivity {
                         System.out.println(test.getArtifactName());
 
                         String artifacts = (levelBuild.get(counter).getArtifactLevel() + "\n");
-                        counter =1;
+
+                        counter +=1;
 
                         onArtifactInfoReceived.setText(artifacts);
+
                         System.out.println(artifacts);
                     }
                 }
