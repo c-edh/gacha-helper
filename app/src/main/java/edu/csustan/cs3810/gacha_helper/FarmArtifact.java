@@ -98,15 +98,15 @@ public class FarmArtifact extends AppCompatActivity {
     }
 
     private void Farm(){
+        TextView resin = (TextView) findViewById(R.id.resinCountTextView);
         String FarmStat = statSelect.toString();
         String stat = artifactInfo.getStatChance(artifact);
        // System.out.println(stat);
         if(stat.equals(FarmStat)){
-            System.out.print(count + "tries to find it");
+            resin.setText("Resin Needed: \n" + count);
             count = 0;
         }else{
             count+=1;
-            System.out.println(count);
             Farm();
         }
     }
