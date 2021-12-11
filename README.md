@@ -28,3 +28,4 @@ What is in the app:
 
 <img src='createbuild.gif' title='Create Build' alt='Showing the function of Create Build' />
 
+<img src='ArtifactFarm.gif' title='Artifact Farm Demo' alt='showing how to use artifact farm' />
