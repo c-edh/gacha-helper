@@ -184,7 +184,7 @@ public class test_level extends AppCompatActivity {
 
 
 
-private void getUserArtifactBuild(OnArtifactInfoRecievedListener listener){
+public void getUserArtifactBuild(OnArtifactInfoRecievedListener listener){
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DocumentReference docRef = db.collection("Users Build").document(user.getUid());
