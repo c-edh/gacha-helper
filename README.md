@@ -46,4 +46,4 @@ and that you enter in a valid email
 
 <img src='createbuild.gif' title='Create Build' alt='Showing the function of Create Build' />
 
-<img src='ArtifactFarm.gif' title='Artifact Farm Demo' alt='showing how to use artifact farm' />
+<img src='FarmArtifact.gif' title='Artifact Farm Demo' alt='showing how to use artifact farm' />
