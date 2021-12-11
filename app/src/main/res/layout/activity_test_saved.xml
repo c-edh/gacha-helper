@@ -9,13 +9,13 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/savedartifacts"
-        android:layout_width="410dp"
-        android:layout_height="205dp"
+        android:layout_width="412dp"
+        android:layout_height="215dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="522dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -33,12 +33,13 @@
         tools:layout_editor_absoluteX="-16dp" />
 
     <Spinner
-        android:id="@+id/artifacts_spinner"
+        android:id="@+id/aSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="266dp"
         android:layout_marginBottom="420dp"
         android:background="@color/goldenrod"
+        android:textAlignment="center"
         android:minHeight="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
