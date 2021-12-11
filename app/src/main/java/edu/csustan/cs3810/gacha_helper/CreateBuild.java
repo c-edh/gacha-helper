@@ -1,8 +1,8 @@
 package edu.csustan.cs3810.gacha_helper;
 
 // written by:Corey Edh
-// tested by:
-// debugged by:
+// tested by: Corey Edh
+// debugged by: Corey Edh
 
 
 import static android.content.ContentValues.TAG;
