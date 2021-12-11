@@ -3,26 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
+    android:background="@color/goldenrod"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+// neha
     <TextView
-        android:id="@+id/printSoon"
-        android:layout_width="190dp"
-        android:layout_height="131dp"
-        android:text="Coming Soon"
-        android:textSize="50sp"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginBottom="642dp"
+        android:background="@color/purple_500"
+        android:text="Recommended Builds"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="288dp"
-        android:layout_height="387dp"
-        app:layout_constraintBottom_toTopOf="@+id/printSoon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pepepoggers" />
+        tools:layout_editor_absoluteX="118dp" />
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="640dp"
+        android:layout_below="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nWithin each artifact set, there’s a flower, headset, goblet, feather, and timer. If you have two of the artifacts from the same set you get a special bonus; the same goes for four artifacts from the same set. We find attack damage and crit damage to be effective for any character, but here are a few extra rules to follow: \n \nWhen building your dps characters, you generally want to have an attack of between 1,800 to 2,000.
+Some characters, like hu tao and thoma, scale off of hp, in which case you'd want to build hp% more than attack.
+It's also best to keep crit rate at around 50% and to have crit damage at 150%; more specifically, you want your crit damage to be three times your crit rate.
+Crit rite and crit damage are always desirable substats to aim for; however in some cases, depending on your character,
+elemental buffs, such as elemental mastery or elemental damage bonus' (like hydro damage bonus on childe) can be just as effective. \n When building your support / healers, it's a good idea to prioritize healing bonus and energy recharge to keep your
+support's abilities on hand quickly."
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
