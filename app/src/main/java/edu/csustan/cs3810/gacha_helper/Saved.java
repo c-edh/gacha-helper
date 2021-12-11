@@ -22,9 +22,10 @@ public class Saved extends AppCompatActivity implements AdapterView.OnItemSelect
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Toast.makeText(this, adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-    }
+        Toast.makeText(getApplicationContext(), "Main Stat: ATK%, SubStat: CRIT%, DEF%" +
 
+                adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
