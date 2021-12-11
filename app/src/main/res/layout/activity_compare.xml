@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-// neha
+    // neha
+
+    <TextView
+        android:id="@+id/YourArtifactTitle"
+        android:layout_width="145dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="55dp"
+        android:text="Your Artifact Subs"
+        app:layout_constraintStart_toStartOf="@+id/YourArtifactStats"
+        app:layout_constraintTop_toBottomOf="@+id/TitleBar" />
+
     <View
         android:id="@+id/divider3"
         android:layout_width="409dp"
@@ -19,18 +29,67 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/TitleBar"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginBottom="642dp"
-        android:background="@color/purple_500"
-        android:text="Compare Builds"
+        android:layout_height="50dp"
+        android:background="@color/goldenrod"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Compare Artifacts"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
+        android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="118dp" />
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/PerfectArtifactStats"
+        android:layout_width="155dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PerfectArtifactTitle" />
+
+    <TextView
+        android:id="@+id/YourArtifactStats"
+        android:layout_width="155dp"
+        android:layout_height="204dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/YourArtifactTitle" />
+
+    <TextView
+        android:id="@+id/PerfectArtifactTitle"
+        android:layout_width="145dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="55dp"
+        android:text="Perfect Artifact Subs"
+        app:layout_constraintStart_toStartOf="@+id/PerfectArtifactStats"
+        app:layout_constraintTop_toBottomOf="@+id/TitleBar" />
+
+    <TextView
+        android:id="@+id/CompareResults"
+        android:layout_width="155dp"
+        android:layout_height="247dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+    <Button
+        android:id="@+id/compareButton"
+        android:layout_width="123dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="35dp"
+        android:text="Compare"
+        android:textSize="17sp"
+        app:backgroundTint="@color/goldenrod"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CompareResults" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
