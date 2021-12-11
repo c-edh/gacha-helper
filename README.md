@@ -19,6 +19,14 @@ What is in the app:
 * Level Up
 * Farm Artifact
 
+## How to download App and use it.
+* First copy the git repo link
+* Clone the git repo, if not familar Android Studios also allows you to put in clone repo
+* Once the git repo is downloaded, open it in Android Studios
+* Download a emulator if you don't already have one with API 30
+* Click Run
+* **Congrats!!** now you have a running Gacha-Helper App!
+
 ## Classes explain
 * CreateBuild: This pulls data about artifacts and their stat chances, it uses this data to create the user a build
 * FarmArtifact: This pulls data about each artifact and their stats, and runs calculations on how many resin (how many tries it has to loop through) to get the user's desire result
