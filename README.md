@@ -24,6 +24,13 @@ What is in the app:
 * FarmArtifact: This pulls data about each artifact and their stats, and runs calculations on how many resin (how many tries it has to loop through) to get the user's desire result
 * LevelUp: This feature should be able to pull a saved build from Firebase, and increase the level count by however many times the User clicks the level up button. 
 
+## How the Database Looks
+### User Build in data base
+<img src='userbuild_database.png' title='User Build Database example' alt='What the user build data looks like in database' />
+<img src='artifact_database.png' title='Artifact Database Example' alt='This is what Artifacts database looks like' />
+<img src='artifactvalues_database.png' title='Artifact Values Database Example' alt='This is what Artifact values are in database' />
+
+
 ## Using the App
 * Make an account with Sign Up, make sure the password is longer than 6 characters
 and that you enter in a valid email
