@@ -1,5 +1,6 @@
 package edu.csustan.cs3810.gacha_helper;
 
+//Written by Corey Edh
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
@@ -29,12 +30,15 @@ public class FarmArtifact extends AppCompatActivity {
 
     private ArrayList<String> artifactStatList;
     private RecyclerView recyclerView;
+    private recyclerAdapter.RecyclerViewClickListener listener;
 
     private CreateBuild artifactInfo = new CreateBuild();
 
     private Map<String, Double> artifact;
 
     private int count = 1;
+
+    private String statSelect = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +95,8 @@ public class FarmArtifact extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        recyclerAdapter adapter = new recyclerAdapter(artifactStatList);
+        setOnClickListner();
+        recyclerAdapter adapter = new recyclerAdapter(artifactStatList, listener);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -99,6 +104,16 @@ public class FarmArtifact extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
+    }
+
+    private void setOnClickListner() {
+        listener = new recyclerAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                statSelect = artifactStatList.get(position).toString();
+                System.out.println(statSelect);
+            }
+        };
     }
 
     interface OnArtifactInfoRecievedListener{

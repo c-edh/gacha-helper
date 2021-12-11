@@ -18,6 +18,8 @@
         <activity
             android:name=".CreateBuild"
             android:exported="false" />
+        <activity android:name=".Saved"
+            android:exported="false"/>
         <activity
             android:name=".test_recommend"
             android:exported="false" />

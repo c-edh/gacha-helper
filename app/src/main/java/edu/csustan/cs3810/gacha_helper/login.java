@@ -1,6 +1,6 @@
 package edu.csustan.cs3810.gacha_helper;
 
-//Corey Edh
+//Written by Corey Edh
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
