@@ -46,50 +46,84 @@ public class FarmArtifact extends AppCompatActivity {
         setContentView(R.layout.activity_farm_artifact);
         recyclerView = findViewById(R.id.recyclerView);
         artifactStatList = new ArrayList<>();
-        setStat();
-        setAdapter();
-
     }
     public void getFlowerStats(View view){
-       // createUserBuild("Flower of Life");
+        artifactStatList.clear();
+        StatList("Flower of Life");
     }
+
     //Circlet Button
     public void getCircletOfLogosStats(View view){
+        artifactStatList.clear();
+        StatList("Circlet of Logos");
 
     }
     //Goblet Button
     public void getGobletOfEonothemStats(View view){
+        artifactStatList.clear();
+        StatList("Goblet of Eonothem");
+    }
 
 
-        getArtifactInfoFarm("Goblet of Eonothem", new OnArtifactInfoRecievedListener(){
+    //Feather
+    public void getPlumeOfDeathStats(View view){
+        artifactStatList.clear();
+        StatList("Plume of Death");
+    }
+    //Sands of Eon Button
+    public void getSandsOfEonStats(View view){
+        artifactStatList.clear();
+        StatList("Sands of Eon");
+    }
+
+    private void StatList(String Artifact){
+        getArtifactInfoFarm(Artifact, new OnArtifactInfoRecievedListener(){
             @Override
             public void onArtifactInfoRecieved(Map<String, Double> results) {
-                Farm("Goblet of Eonothem",results);
+                artifact = results;
+                for(String stat : results.keySet()){
+                    System.out.println(stat);
+                    setStat(stat);
+                    //artifactStatList.add(stat);
+                }
             }
         });
 
     }
-    //Feather
-    public void getPlumeOfDeathStats(View view){
 
+
+
+    public void FarmButton(View view){
+        Farm();
     }
-    //Sands of Eon Button
-    public void getSandsOfEonStats(View view){
 
+    private void Farm(){
+        String FarmStat = statSelect.toString();
+        String stat = artifactInfo.getStatChance(artifact);
+       // System.out.println(stat);
+        if(stat.equals(FarmStat)){
+            System.out.print(count + "tries to find it");
+            count = 0;
+        }else{
+            count+=1;
+            System.out.println(count);
+            Farm();
+        }
     }
 
 
 
 
     //Adds the artifacts stats to the list
-    private void setStat() {
+    private void setStat(String stats) {
         //add stats to artifactStat list here
 
         //artifactStatList.add(stat) <- example
 
-        artifactStatList.add("test");
-        artifactStatList.add("test2");
-        artifactStatList.add("test3");
+            artifactStatList.add(stats);
+//        artifactStatList.add("test2");
+//        artifactStatList.add("test3");
+        setAdapter();
 
 
     }
@@ -152,18 +186,7 @@ public class FarmArtifact extends AppCompatActivity {
     }
 
 
-    private void Farm(String Artifact, Map<String, Double> ArtifactStats){
-        String FarmStat = "ATK%";
-        String stat = artifactInfo.getStatChance(ArtifactStats);
-        System.out.println(stat);
-        if(stat.equals(FarmStat)){
-            System.out.print(count + "tries to find it");
-        }else{
-            count+=1;
-            System.out.println(count);
-            Farm(Artifact, ArtifactStats);
-        }
-    }
+
 
 
 
