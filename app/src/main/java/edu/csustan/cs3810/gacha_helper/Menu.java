@@ -7,6 +7,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
+// written by:
+// tested by: neha
+// debugged by:
+// etc.
+
 public class Menu extends AppCompatActivity {
 
     @Override
