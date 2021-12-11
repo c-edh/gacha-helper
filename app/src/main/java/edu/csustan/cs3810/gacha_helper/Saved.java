@@ -9,7 +9,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
-// neha
+
+// written by: neha
+// tested by: neha
+// debugged by: neha, corey
+// etc.
+
 public class Saved extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @Override

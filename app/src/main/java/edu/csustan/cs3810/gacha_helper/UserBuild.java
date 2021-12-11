@@ -1,7 +1,10 @@
 package edu.csustan.cs3810.gacha_helper;
 
-
-//Corey Edh
+// Corey Edh
+// written by:
+// tested by:
+// debugged by:
+// etc.
 
 import android.renderscript.Sampler;
 
