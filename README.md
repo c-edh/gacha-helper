@@ -25,9 +25,11 @@ What is in the app:
 * LevelUp: This feature should be able to pull a saved build from Firebase, and increase the level count by however many times the User clicks the level up button. 
 
 ## How the Database Looks
-### User Build in data base
+### User Build in database
 <img src='userbuild_database.png' title='User Build Database example' alt='What the user build data looks like in database' />
+### Artifact in database
 <img src='artifact_database.png' title='Artifact Database Example' alt='This is what Artifacts database looks like' />
+### Artifact Values in database
 <img src='artifactvalues_database.png' title='Artifact Values Database Example' alt='This is what Artifact values are in database' />
 
 
