@@ -129,7 +129,7 @@ public class test_level<var> extends AppCompatActivity {
                         levelBuild.put(counter,test);
                         System.out.println(test.getArtifactName());
 
-                        String artifacts = (levelBuild.get(counter).getArtifactLevel() + "\n");
+                        String artifacts = (levelBuild.get(counter).getArtifactName() + "\n");
 
                         counter +=1;
 
@@ -284,8 +284,7 @@ public class test_level<var> extends AppCompatActivity {
 
 
                     System.out.println("New Level Up: " );
-                    displaystats.setText("New Level Up: 2");
-                    displaystats.setText("+230HP");
+                    displaystats.setText("Artifact Enhanced!");
                 }
             }
         });
