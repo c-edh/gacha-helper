@@ -16,11 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-// written by: corey, neha
-// tested by: corey, neha
-// debugged by: corey, neha
-// etc.
-
 public class Signup extends AppCompatActivity {
 
     EditText editTextEmail;
