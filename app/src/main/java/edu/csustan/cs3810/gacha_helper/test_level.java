@@ -98,27 +98,11 @@ public class test_level<var> extends AppCompatActivity {
             public void onArtifactInfoRecieved(Map<String, Object> results) {
                 TextView onArtifactInfoReceived = (TextView) findViewById(R.id.onArtifactInfoReceieved);
                 onArtifactInfoReceived.setText("");
+                String sands = "";
 
                 for(String builds : results.keySet()){
 
                     ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
-
-                    DocumentReference documentReference = db.collection("Users Build").document("getUid");
-                    documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            if(documentSnapshot.exists()) {
-
-                                ArrayList<String> arrayList = new ArrayList<String>();
-                                arrayList = (ArrayList) documentSnapshot.get("9DnFBp63wbght9Xsq7YsVhC6wp63");
-
-                                for(int i=0; i < arrayList.size(); i++){
-
-                                }
-                            }
-                        }
-                    });
-
 
                     for(Object artifact : buildartifact){
                         Map<String, ?> maptest = (Map<String, ?>) artifact;
@@ -133,7 +117,7 @@ public class test_level<var> extends AppCompatActivity {
 
                         counter +=1;
 
-                        onArtifactInfoReceived.setText(artifacts);
+                        onArtifactInfoReceived.setText(sands);
 
                         System.out.println(artifacts);
                     }
