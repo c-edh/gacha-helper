@@ -102,6 +102,10 @@ public class FarmArtifact extends AppCompatActivity {
 
     private void Farm(){
         TextView resin = (TextView) findViewById(R.id.resinCountTextView);
+        if (statSelect.equals("")){
+            resin.setText("Click a stat");
+            return;
+        }
         String FarmStat = statSelect.toString();
         String stat = artifactInfo.getStatChance(artifact);
        // System.out.println(stat);
