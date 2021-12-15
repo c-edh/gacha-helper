@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -92,12 +93,12 @@ public class test_level<var> extends AppCompatActivity {
 
     public  void pullSands(View view) {
 
-
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
                 TextView onArtifactInfoReceived = (TextView) findViewById(R.id.onArtifactInfoReceieved);
                 onArtifactInfoReceived.setText("");
+                String sands = "";
 
                 for(String builds : results.keySet()){
 
@@ -112,11 +113,11 @@ public class test_level<var> extends AppCompatActivity {
                         levelBuild.put(counter,test);
                         System.out.println(test.getArtifactName());
 
-                        String artifacts = (levelBuild.get(counter).getArtifactLevel() + "\n");
+                        String artifacts = (levelBuild.get(counter).getArtifactName() + "\n");
 
                         counter +=1;
 
-                        onArtifactInfoReceived.setText(artifacts);
+                        onArtifactInfoReceived.setText(sands);
 
                         System.out.println(artifacts);
                     }
@@ -152,7 +153,7 @@ public class test_level<var> extends AppCompatActivity {
                         System.out.println(test.getArtifactName());
 
                         String artifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
-                        counter -=1;
+                        counter +=1;
 
                         onArtifactInfoReceived.setText(artifacts);
                     }
@@ -161,16 +162,113 @@ public class test_level<var> extends AppCompatActivity {
         });
     }
 
+    public void pullFlower(View view){
+        getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
+            @Override
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
+                TextView onArtifactInfoReceived = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoReceived.setText("");
+
+                for(String builds : results.keySet()){
+
+                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
+
+                    for(Object artifact : buildartifact){
+                        Map<String, ?> maptest = (Map<String, ?>) artifact;
+
+                        int counter =0;
+
+                        UserBuild test = new UserBuild(maptest);
+                        levelBuild.put(counter,test);
+                        System.out.println(test.getArtifactName());
+
+                        String artifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        counter +=1;
+
+                        onArtifactInfoReceived.setText(artifacts);
+                    }
+                }
+            }
+        });
+    }
+
+    public void pullGoblet(View view){
+        getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
+            @Override
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
+                TextView onArtifactInfoReceived = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoReceived.setText("");
+
+                for(String builds : results.keySet()){
+
+                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
+
+                    for(Object artifact : buildartifact){
+                        Map<String, ?> maptest = (Map<String, ?>) artifact;
+
+                        int counter =0;
+
+                        UserBuild test = new UserBuild(maptest);
+                        levelBuild.put(counter,test);
+                        System.out.println(test.getArtifactName());
+
+                        String artifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        counter +=1;
+
+                        onArtifactInfoReceived.setText(artifacts);
+                    }
+                }
+            }
+        });
+    }
+
+    public void pullCirclet(View view){
+        getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
+            @Override
+            public void onArtifactInfoRecieved(Map<String, Object> results) {
+                TextView onArtifactInfoReceived = (TextView) findViewById(R.id.onArtifactInfoReceieved);
+                onArtifactInfoReceived.setText("");
+
+                for(String builds : results.keySet()){
+
+                    ArrayList<Object> buildartifact = (ArrayList) results.get(builds);
+
+                    for(Object artifact : buildartifact){
+                        Map<String, ?> maptest = (Map<String, ?>) artifact;
+
+                        int counter =0;
+
+                        UserBuild test = new UserBuild(maptest);
+                        levelBuild.put(counter,test);
+                        System.out.println(test.getArtifactName());
+
+                        String artifacts = (levelBuild.get(counter).getArtifactName().toString() + "\n");
+                        counter +=1;
+
+                        onArtifactInfoReceived.setText(artifacts);
+                    }
+                }
+            }
+        });
+    }
+
+
+
     public void LevelUp(View view){
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
-                TextView onArtifactInfoRecieved = (TextView) findViewById(R.id.onArtifactInfoReceieved);
-                onArtifactInfoRecieved.setText("");
+                TextView displaystats = (TextView) findViewById(R.id.displaystats);
+
 
                 for(String builds : results.keySet()) {
                     Map<String,Object> data = new HashMap<>();
                     data.put("artifactLevel", FieldValue.increment(1));
+
+
+
+                    System.out.println("New Level Up: " );
+                    displaystats.setText("Artifact Enhanced!");
                 }
             }
         });
