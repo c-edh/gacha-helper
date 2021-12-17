@@ -57,7 +57,7 @@ public class test_level<var> extends AppCompatActivity {
         setContentView(R.layout.activity_test_level);
     }
 
-    public void pullUserBuild(View view){
+    public void pullUserBuild(View view){ //pulls old User Buiild information and sets them into an ArrayList, Corey Edh
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
@@ -91,7 +91,7 @@ public class test_level<var> extends AppCompatActivity {
         });
     }
 
-    public  void pullSands(View view) {
+    public  void pullSands(View view) { //attempts to pull for a Sands Artifact within a saved Build, Dhominic Abenes
 
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
@@ -132,7 +132,7 @@ public class test_level<var> extends AppCompatActivity {
 
 
 
-    public void pullPlume(View view) {
+    public void pullPlume(View view) { //attempts to pull for a Plume/Feather Artifact within a saved Build, Dhominic Abenes
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
@@ -162,7 +162,7 @@ public class test_level<var> extends AppCompatActivity {
         });
     }
 
-    public void pullFlower(View view){
+    public void pullFlower(View view){//attempts to pull for a Flower Artifact within a saved Build, Dhominic Abenes
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
@@ -192,7 +192,7 @@ public class test_level<var> extends AppCompatActivity {
         });
     }
 
-    public void pullGoblet(View view){
+    public void pullGoblet(View view){//attempts to pull for a Goblet Artifact within a saved Build, Dhominic Abenes
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
@@ -222,7 +222,7 @@ public class test_level<var> extends AppCompatActivity {
         });
     }
 
-    public void pullCirclet(View view){
+    public void pullCirclet(View view){ //attempts to pull for a Circlet Artifact within a saved Build, Dhominic Abenes
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
@@ -254,7 +254,7 @@ public class test_level<var> extends AppCompatActivity {
 
 
 
-    public void LevelUp(View view){
+    public void LevelUp(View view){ //display the acion of leveling up an artifact, Dhominic Abenes
         getUserArtifactBuild(new OnArtifactInfoRecievedListener() {
             @Override
             public void onArtifactInfoRecieved(Map<String, Object> results) {
@@ -277,14 +277,14 @@ public class test_level<var> extends AppCompatActivity {
 
     }
 
-    interface OnArtifactInfoRecievedListener {
+    interface OnArtifactInfoRecievedListener { //sets objects into a Map, Corey Edh
         void onArtifactInfoRecieved(Map<String, Object> results);
     }
 
 
 
 
-public void getUserArtifactBuild(OnArtifactInfoRecievedListener listener){
+public void getUserArtifactBuild(OnArtifactInfoRecievedListener listener){ //pulls saved builds from Firebase, Dhominic Abenes
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DocumentReference docRef = db.collection("Users Build").document(user.getUid());
